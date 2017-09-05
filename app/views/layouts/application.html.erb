@@ -16,9 +16,11 @@
     <% else%>
       <li> <%= link_to 'Cadastrar', new_user_registration_path %> </li>
       <li> <%= link_to('Login', new_user_session_path) %> </li>
-    <% end %>
 
-    Menu: <%= link_to 'Cadastrar Cliente', new_client_path %>
+      <strong>Menu:</strong> 
+    <%= link_to 'Cadastrar Cliente', new_client_path %> | <%= link_to 'Listar Clientes', clients_path %>
+      
+    <% end %>
 
     <%= yield %>
   </body>

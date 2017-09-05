@@ -12,8 +12,8 @@ rvm:
 # uncomment and edit the following line if your project needs to run something other than `rake`:
 # script: bundle exec rspec spec
 script:
-#  - bundle exec rspec spec
-#  - bundle exec cucumber
+  - bundle exec rspec spec
+  - bundle exec cucumber
 
 services:
   - postgresql

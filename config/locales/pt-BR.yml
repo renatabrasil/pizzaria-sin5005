@@ -1,0 +1,10 @@
+pt-BR:
+  hello: "Olá Mundo!"
+  activerecord:
+    attributes:
+      user:
+        password: 'Senha'
+      client:
+        name: 'Nome'
+        phone: 'Telefone'
+        address: 'Endereço'
