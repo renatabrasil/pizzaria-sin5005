@@ -14,6 +14,8 @@ Versões utilizadas:
    - Instalar rails
    - Instalar postgres
 
+----
+
 ### Clonando o repositório
 
 Navegar para a pasta onde fica seus projetos de desenvolvimento (workspace).
@@ -88,4 +90,16 @@ Rodar todos os testes:
 ```sh
 $ rake
 ```
+
+Sempre que tiver migrations novas, o comando abaixo deve ser executado:
+```sh
+$ rake db:migrate
+```
+Em ambiente de testes:
+```sh
+$ rake db:migrate RAILS_ENV=test
+```
+
+
+----
  \o/ hey, ho, let's go /o/
