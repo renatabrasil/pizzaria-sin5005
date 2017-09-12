@@ -2,17 +2,19 @@
 
 Projetinho da disciplina SIN5005 Tópicos em Engenharia de Software. Só o basicão de um sistema. Estou usando Ruby On Rails, integração contínua e testes automatizados, além de postgres.
 
-Versões utilizadas:
 
-  - **Ruby:** 2.4.0
-  - **Rails:** 5.0.3
-  - **postgreSQL:** 9.6
+ 
+> **Versões:**
 
-### Instalações
+> - **Ruby:** 2.4.0
+> - **Rails:** 5.0.3
+> - **postgreSQL:** 9.6
 
-   - Instalar ruby
-   - Instalar rails
-   - Instalar postgres
+> **Instalações:**
+
+> - **Ruby:** [link1 ubuntu](http://codepop.biz/installing-ruby-2-4-0-rbenv-linux/)
+> - **Rails:** [link1 ubuntu](https://www.rosehosting.com/blog/install-ruby-on-rails-on-ubuntu-16-04/), [link2 ubuntu](https://www.digitalocean.com/community/tutorials/how-to-install-ruby-on-rails-with-rbenv-on-ubuntu-16-04)
+> - **postgreSQL:** [link1 ubuntu](https://www.postgresql.org/download/linux/ubuntu/), [link2 windows](https://www.postgresql.org/download/windows/)
 
 ----
 
@@ -102,4 +104,4 @@ $ rake db:migrate RAILS_ENV=test
 
 
 ----
- \o/ hey, ho, let's go /o/
+ \o/ hey ho, let's go! /o/
