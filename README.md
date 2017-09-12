@@ -12,9 +12,25 @@ Projetinho da disciplina SIN5005 Tópicos em Engenharia de Software. Só o basic
 
 > **Instalações:**
 
-> - **Ruby:** [link1 ubuntu](http://codepop.biz/installing-ruby-2-4-0-rbenv-linux/)
-> - **Rails:** [link1 ubuntu](https://www.rosehosting.com/blog/install-ruby-on-rails-on-ubuntu-16-04/), [link2 ubuntu](https://www.digitalocean.com/community/tutorials/how-to-install-ruby-on-rails-with-rbenv-on-ubuntu-16-04)
-> - **postgreSQL:** [link1 ubuntu](https://www.postgresql.org/download/linux/ubuntu/), [link2 windows](https://www.postgresql.org/download/windows/)
+> - **Ruby:** [link ubuntu](http://codepop.biz/installing-ruby-2-4-0-rbenv-linux/)
+> - **Rails:** 
+> 1. [link1 ubuntu](https://www.rosehosting.com/blog/install-ruby-on-rails-on-ubuntu-16-04/)
+> 2. [link2 ubuntu](https://www.digitalocean.com/community/tutorials/how-to-install-ruby-on-rails-with-rbenv-on-ubuntu-16-04)
+> - **postgreSQL:** 
+> 1. [link1 ubuntu](https://www.postgresql.org/download/linux/ubuntu/)
+> 2. [link2 windows](https://www.postgresql.org/download/windows/)
+
+> **Outros links úteis:**
+
+> - **RSpec (testes unitários):**
+>  1. [Behaviour Driven Development for Ruby. Making TDD Productive and Fun](http://rspec.info/)
+>  2. [Usando o RSpec para testar sua aplicação Rails](https://nandovieira.com.br/usando-o-rspec-para-testar-sua-aplicacao-rails-modelos)
+>  3. [Documentação](https://relishapp.com/rspec/rspec-rails/docs).
+> - **Cucumber (testes de aceitação):** 
+> 1. [Tutorial 1](https://cassiomarques.wordpress.com/2008/11/16/testes-funcionais-no-rails-usando-o-cucumber/)
+> 2. [Documentação](https://cucumber.io/docs/reference/rails).
+
+
 
 ----
 
