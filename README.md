@@ -25,10 +25,12 @@ Projetinho da disciplina SIN5005 Tópicos em Engenharia de Software. Só o basic
 > - **RSpec (testes unitários):**
 >  1. [Behaviour Driven Development for Ruby. Making TDD Productive and Fun](http://rspec.info/)
 >  2. [Usando o RSpec para testar sua aplicação Rails](https://nandovieira.com.br/usando-o-rspec-para-testar-sua-aplicacao-rails-modelos)
->  3. [Documentação](https://relishapp.com/rspec/rspec-rails/docs).
+>  3. [How to test rails models with rspec](https://semaphoreci.com/community/tutorials/how-to-test-rails-models-with-rspec)
+>  4. [Documentação](https://relishapp.com/rspec/rspec-rails/docs).
 > - **Cucumber (testes de aceitação):** 
 > 1. [Tutorial 1](https://cassiomarques.wordpress.com/2008/11/16/testes-funcionais-no-rails-usando-o-cucumber/)
-> 2. [Documentação](https://cucumber.io/docs/reference/rails).
+> 2. [Rails cucumber test cases for simple CRUD using capybara and selenium](https://ramprabu.wordpress.com/2014/06/05/rails-cucumber-test-cases-for-simple-crud-using-capybara-and-selenium/)
+> 3. [Documentação](https://cucumber.io/docs/reference/rails).
 
 
 
