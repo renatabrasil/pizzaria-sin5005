@@ -19,13 +19,13 @@ class ClientsController < ApplicationController
 		    redirect_to @client
 	  	else
 		    render 'new'
-		end
+			end
 
 	end
 
 	def update
 	  @client = Client.find(params[:id])
-	 
+
 	  if @client.update(client_params)
 	    redirect_to @client
 	  else
@@ -39,11 +39,11 @@ class ClientsController < ApplicationController
 	end
 
 	def destroy
-	    @client = Client.find(params[:id])
-	    @client.destroy
-	 
-	    redirect_to clients_path
-	  end
+    @client = Client.find(params[:id])
+    @client.destroy
+
+    redirect_to clients_path
+  end
 
 	private
 		def client_params

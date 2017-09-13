@@ -12,13 +12,13 @@ class PizzasController < ApplicationController
 	end
 
 	def create
-  		@pizza = Pizza.new(pizza_params)
+		@pizza = Pizza.new(pizza_params)
 
-	  	if @pizza.save
-		    redirect_to @pizza
-	  	else
-		    render 'new'
-		end
+  	if @pizza.save
+	    redirect_to @pizza
+  	else
+	    render 'new'
+    end
 
 	end
 
@@ -34,15 +34,15 @@ class PizzasController < ApplicationController
 
 
 	def show
-  		@pizza = Pizza.find(params[:id])
+		@pizza = Pizza.find(params[:id])
 	end
 
 	def destroy
-	    @pizza = Pizza.find(params[:id])
-	    @pizza.destroy
+    @pizza = Pizza.find(params[:id])
+    @pizza.destroy
 
-	    redirect_to pizzas_path
-	  end
+    redirect_to pizzas_path
+  end
 
 	private
 		def Pizza_params
