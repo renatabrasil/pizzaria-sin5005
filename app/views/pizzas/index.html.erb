@@ -8,15 +8,15 @@
     <th>Endereço</th>
     <th colspan="3"></th>
   </tr>
- 
-  <% @clients.each do |client| %>
+
+  <% @pizzas.each do |pizza| %>
     <tr>
-      <td><%= client.name %></td>
-      <td><%= client.phone %></td>
-      <td><%= client.address %></td>
-      <td><%= link_to 'Visualizar', client_path(client) %></td>
-      <td><%= link_to 'Editar', edit_client_path(client) %></td>
-      <td><%= link_to 'Excluir', client_path(client),
+      <td><%= pizza.name %></td>
+      <td><%= pizza.phone %></td>
+      <td><%= pizza.address %></td>
+      <td><%= link_to 'Visualizar', pizza_path(pizza) %></td>
+      <td><%= link_to 'Editar', edit_pizza_path(pizza) %></td>
+      <td><%= link_to 'Excluir', pizza_path(pizza),
               method: :delete,
               data: { confirm: 'Are you sure?' } %></td>
     </tr>

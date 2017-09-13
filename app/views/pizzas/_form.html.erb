@@ -1,18 +1,18 @@
-<% if @client.errors.any? %>
+<% if @pizza.errors.any? %>
     <div id="error_explanation">
       <h2>
-        <%= pluralize(@client.errors.count, "error") %> prohibited
+        <%= pluralize(@pizza.errors.count, "error") %> prohibited
         this article from being saved:
       </h2>
       <ul>
-        <% @client.errors.full_messages.each do |msg| %>
+        <% @pizza.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
 
-<%= form_for @client do |f| %>
+<%= form_for @pizza do |f| %>
   <p>
     <%= f.label :name %><br>
     <%= f.text_field :name %>
