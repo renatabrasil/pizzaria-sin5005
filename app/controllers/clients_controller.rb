@@ -13,14 +13,13 @@ class ClientsController < ApplicationController
 	end
 
 	def create
-  		@client = Client.new(client_params)
+		@client = Client.new(client_params)
 
-	  	if @client.save
-		    redirect_to @client
-	  	else
-		    render 'new'
-			end
-
+  	if @client.save
+	    redirect_to @client
+  	else
+	    render 'new'
+		end
 	end
 
 	def update
@@ -35,7 +34,7 @@ class ClientsController < ApplicationController
 
 
 	def show
-  		@client = Client.find(params[:id])
+		@client = Client.find(params[:id])
 	end
 
 	def destroy
