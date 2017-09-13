@@ -29,7 +29,8 @@ Projetinho da disciplina SIN5005 Tópicos em Engenharia de Software. Só o basic
 >  4. [Documentação](https://relishapp.com/rspec/rspec-rails/docs).
 > - **Cucumber (testes de aceitação):** 
 > 1. [Tutorial 1](https://cassiomarques.wordpress.com/2008/11/16/testes-funcionais-no-rails-usando-o-cucumber/)
-> 2. [Documentação](https://cucumber.io/docs/reference/rails).
+> 2. [Rails cucumber test cases for simple CRUD using capybara and selenium](https://ramprabu.wordpress.com/2014/06/05/rails-cucumber-test-cases-for-simple-crud-using-capybara-and-selenium/)
+> 3. [Documentação](https://cucumber.io/docs/reference/rails).
 
 
 
