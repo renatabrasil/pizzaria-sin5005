@@ -15,6 +15,17 @@ ActiveRecord::Schema.define(version: 20170906213202) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "activities", id: :serial, force: :cascade do |t|
+    t.string "name", limit: 500
+    t.text "description"
+    t.string "period", limit: 100
+    t.boolean "active", default: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "priority"
+    t.index ["priority"], name: "index_activities_on_priority", unique: true
+  end
+
   create_table "clients", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
