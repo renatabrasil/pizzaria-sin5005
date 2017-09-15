@@ -19,6 +19,11 @@ Projetinho da disciplina SIN5005 Tópicos em Engenharia de Software. Só o basic
 > - **postgreSQL:** 
 > 1. [link1 ubuntu](https://www.postgresql.org/download/linux/ubuntu/)
 > 2. [link2 windows](https://www.postgresql.org/download/windows/)
+> - **Ambiente de desenvolvimento (Ubuntu):** 
+> 1. Atom: opção de IDE (tem vários recursos já instalados)
+> 2. Sublime Text: outra opção de IDE, porém precisa instalar vários plugins
+> 3. [rubocop-auto-correct](https://atom.io/packages/rubocop-auto-correct/): integrado com o Atom, ajuda a manter o código padronizado.
+
 
 > **Outros links úteis:**
 
