@@ -3,7 +3,7 @@ before_install:
   # - sudo apt-get -qq update
   # - sudo apt-get install -y libxml2-dev
 
-# env: CC_TEST_REPORTER_ID=5d31b2346aeac0c9193eb75b3e85657dcb1b84bf9902bf688b9ccec846d32489
+env: CC_TEST_REPORTER_ID=5d31b2346aeac0c9193eb75b3e85657dcb1b84bf9902bf688b9ccec846d32489
 language: ruby
 rvm:
  #- 2.2
@@ -14,25 +14,26 @@ rvm:
 # script: bundle exec rspec spec
 
 before_script:
-  # - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-  # - chmod +x ./cc-test-reporter
-  # - ./cc-test-reporter before-build
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
 
 script:
   - bundle exec rspec spec
   - bundle exec cucumber
 
 after_script:
-  # - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT; fi
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT; fi
 
 services:
   - postgresql
 
 before_script:
   - psql -c 'create database travis_ci_test;' -U postgres
-  - rake db:migrate RAILS_ENV=test
+  # - rake db:migrate RAILS_ENV=test
   # - rake db:setup
+  - rake db:reset
 
-# addons:
-#   code_climate:
-#     repo_token: CC_TEST_REPORTER_ID
+addons:
+  code_climate:
+    repo_token: CC_TEST_REPORTER_ID
