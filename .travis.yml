@@ -29,10 +29,11 @@ services:
   - postgresql
 
 before_script:
+  - rake db:drop
   - psql -c 'create database travis_ci_test;' -U postgres
   # - rake db:migrate RAILS_ENV=test
-  # - rake db:setup
-  - rake db:reset
+  - rake db:setup
+  # - rake db:reset
 
 addons:
   code_climate:
