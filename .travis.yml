@@ -30,9 +30,9 @@ services:
 
 before_script:
   - psql -c 'create database travis_ci_test;' -U postgres
-  # - rake db:migrate RAILS_ENV=test
-  - rake db:setup
+  - rake db:migrate RAILS_ENV=test
+  # - rake db:setup
 
-addons:
-  code_climate:
-    repo_token: CC_TEST_REPORTER_ID
+# addons:
+#   code_climate:
+#     repo_token: CC_TEST_REPORTER_ID
