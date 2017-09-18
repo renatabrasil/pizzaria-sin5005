@@ -5,7 +5,6 @@ before_install:
 
 env: CC_TEST_REPORTER_ID=5d31b2346aeac0c9193eb75b3e85657dcb1b84bf9902bf688b9ccec846d32489
 language: ruby
-language: ruby
 rvm:
  #- 2.2
  - 2.4.0
@@ -33,3 +32,7 @@ before_script:
   - psql -c 'create database travis_ci_test;' -U postgres
   # - rake db:migrate RAILS_ENV=test
   - rake db:setup
+
+addons:
+  code_climate:
+    repo_token: CC_TEST_REPORTER_ID
