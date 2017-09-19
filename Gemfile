@@ -48,6 +48,7 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem 'database_cleaner'
+  gem 'rubocop', '~> 0.50.0', require: false
   gem 'simplecov', :require => false, :group => :test
 end
 
