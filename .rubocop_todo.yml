@@ -431,12 +431,12 @@ Style/AlignParameters:
                  Align the parameters of a method call if they span more
                  than one line.
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#no-double-indent'
-  Enabled: false
+  Enabled: true
 
 Style/AndOr:
   Description: 'Use &&/|| instead of and/or.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#no-and-or-or'
-  Enabled: false
+  Enabled: true
 
 Style/ArrayJoin:
   Description: 'Use Array#join instead of Array#*.'
@@ -497,7 +497,7 @@ Style/CaseEquality:
 Style/CaseIndentation:
   Description: 'Indentation of when in a case/when/[else/]end.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#indent-when-to-case'
-  Enabled: false
+  Enabled: true
 
 Style/CharacterLiteral:
   Description: 'Checks for uses of character literals.'
