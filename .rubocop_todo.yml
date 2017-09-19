@@ -507,11 +507,11 @@ Style/CharacterLiteral:
 Style/ClassAndModuleCamelCase:
   Description: 'Use CamelCase for classes and modules.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#camelcase-classes'
-  Enabled: false
+  Enabled: true
 
 Style/ClassAndModuleChildren:
   Description: 'Checks style of children classes and modules.'
-  Enabled: false
+  Enabled: true
 
 Style/ClassCheck:
   Description: 'Enforces consistent use of `Object#is_a?` or `Object#kind_of?`.'
@@ -520,12 +520,12 @@ Style/ClassCheck:
 Style/ClassMethods:
   Description: 'Use self when defining module/class methods.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#def-self-class-methods'
-  Enabled: false
+  Enabled: true
 
 Style/ClassVars:
   Description: 'Avoid the use of class variables.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#no-class-vars'
-  Enabled: false
+  Enabled: true
 
 Style/ClosingParenthesisIndentation:
   Description: 'Checks the indentation of hanging closing parentheses.'
@@ -563,7 +563,7 @@ Style/DefWithParentheses:
 Style/PreferredHashMethods:
   Description: 'Checks for use of deprecated Hash methods.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#hash-key'
-  Enabled: false
+  Enabled: true
 
 Style/Documentation:
   Description: 'Document classes and non-namespace modules.'
@@ -585,7 +585,7 @@ Style/EachWithObject:
 
 Style/ElseAlignment:
   Description: 'Align elses and elsifs correctly.'
-  Enabled: false
+  Enabled: true
 
 Style/EmptyElse:
   Description: 'Avoid empty else-clauses.'
