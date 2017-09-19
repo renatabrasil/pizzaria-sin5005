@@ -12,18 +12,21 @@
     <% if user_signed_in? %>
       <%= link_to(destroy_user_session_path, :method=>'delete') do %>
         <i class="icon-off"></i> Sair
+
+        <br/>
+        <strong>Menu:</strong>
+        <%= link_to 'Cadastrar Cliente', new_client_path %> |
+        <%= link_to 'Listar Clientes', clients_path %> |
+        <%= link_to 'Cadastrar pizza', new_pizza_path %> |
+        <%= link_to 'Listar pizzas', pizzas_path %>
+
       <% end %>
     <% else%>
       <li> <%= link_to 'Cadastrar', new_user_registration_path %> </li>
       <li> <%= link_to('Login', new_user_session_path) %> </li>
 
-      <strong>Menu:</strong>
-      <%= link_to 'Cadastrar Cliente', new_client_path %> |
-      <%= link_to 'Listar Clientes', clients_path %> |
-      <%= link_to 'Cadastrar pizza', new_pizza_path %> |
-      <%= link_to 'Listar pizzas', pizzas_path %>
-
     <% end %>
+
 
     <%= yield %>
   </body>
