@@ -5,3 +5,7 @@ Given(/^there is a client with name "(.*?)" phone "(.*?)" and address "(.*?)"$/)
     address: address
   )
 end
+
+Given(/^there is an user with username "(.*?)" and password "(.*?)"$/) do |username, password|
+  User.create(username: username, password: password)
+end
