@@ -41,7 +41,7 @@ Projetinho da disciplina SIN5005 Tópicos em Engenharia de Software. Só o basic
 ----
 ### Fluxo de trabalho
 
-Para detalhes sobre a forma de contribuir com esse repositório, por favor olhe o wiki do projeto clicando [aqui](https://github.com/renatabrasil/pizzaria-sin5005/wiki) e siga as orientações contidas lá.
+Para detalhes sobre a forma de contribuir com esse repositório, por favor olhe o wiki do projeto clicando [aqui](https://github.com/renatabrasil/pizzaria-sin5005/wiki/Documenta%C3%A7%C3%A3o-de-desenvolvimento) e siga as orientações contidas lá.
 
 ----
 
