@@ -31,6 +31,7 @@ services:
 before_script:
   - psql -c 'create database travis_ci_test;' -U postgres
   - bundle exec rake db:migrate RAILS_ENV=test
+  - rake db:seed
   # - rake db:setup
   # - rake db:reset
 
