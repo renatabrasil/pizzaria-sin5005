@@ -26,9 +26,9 @@ test: &test
  # database: cronograma_de_estudo_test
  database: travis_ci_test
 
-#production:
-#  <<: *default
-#  database: cronograma_de_estudo
+production:
+ <<: *default
+ database: pizzaria-sin5005
 
 
 cucumber:
