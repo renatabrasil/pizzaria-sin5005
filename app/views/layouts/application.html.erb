@@ -17,8 +17,8 @@
         <strong>Menu:</strong>
         <%= link_to 'Cadastrar Cliente', new_client_path %> |
         <%= link_to 'Listar Clientes', clients_path %> |
-        <%= link_to 'Cadastrar pizza', new_pizza_path %> |
-        <%= link_to 'Listar pizzas', pizzas_path %>
+        <%= link_to 'Cadastrar Pizza', new_pizza_path %> |
+        <%= link_to 'Listar Pizzas', pizzas_path %>
 
       <% end %>
     <% else%>
@@ -26,7 +26,6 @@
       <li> <%= link_to('Login', new_user_session_path) %> </li>
 
     <% end %>
-
 
     <%= yield %>
   </body>

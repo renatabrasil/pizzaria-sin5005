@@ -1,4 +1,6 @@
 class PizzasController < ApplicationController
+  before_action :authenticate_user!
+  
   def index
 		@pizzas = Pizza.all
 	end
@@ -45,7 +47,7 @@ class PizzasController < ApplicationController
   end
 
 	private
-		def Pizza_params
-			params.require(:pizza).permit(:name, :phone, :address)
+		def pizza_params
+			params.require(:pizza).permit(:name, :price)
 		end
 end
