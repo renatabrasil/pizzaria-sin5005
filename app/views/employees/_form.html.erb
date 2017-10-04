@@ -1,11 +1,11 @@
 <% if @employee.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@employee.errors.count, "error") %> prohibited
-        this article from being saved:
-      </h2>
+    <div id="error_explanation" class="alert alert-danger" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <h3>
+        <%= pluralize(@employee.errors.count, "erros") %> encontrados:
+      </h3>
       <ul>
-        <% @employee.errors.full_messages.each do |msg| %>
+        <% @client.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
       </ul>
@@ -13,32 +13,32 @@
   <% end %>
 
 <%= form_for @employee do |f| %>
-  <p>
+  <div class="form-group">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </p>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
 
-  <p>
+  <div class="form-group">
     <%= f.label :office %><br>
-    <%= f.text_field :office %>
-  </p>
+    <%= f.text_field :office, class: "form-control" %>
+  </div>
 
-  <p>
+  <div class="form-group">
     <%= f.label :salary %><br>
-    <%= f.text_field :salary %>
-  </p>
+    <%= f.text_field :salary, class: "form-control" %>
+  </div>
 
-  <p>
+  <div class="form-group">
     <%= f.label :workload %><br>
-    <%= f.text_field :workload %>
-  </p>
+    <%= f.text_field :workload, class: "form-control" %>
+  </div>
 
-  <p>
+  <div class="form-group">
     <%= f.label :telephone %><br>
-    <%= f.text_field :telephone %>
-  </p>
+    <%= f.text_field :telephone, class: "form-control" %>
+  </div>
 
-  <p>
-    <%= f.submit :Salvar%>
-  </p>
+  <div class="form-group">
+    <%= f.submit :Salvar, class: "btn btn-primary" %>
+  </div>
 <% end %>
