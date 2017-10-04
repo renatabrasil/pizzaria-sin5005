@@ -4,6 +4,7 @@ pt-BR:
     attributes:
       user:
         password: 'Senha'
+        email: 'E-mail'
       client:
         name: 'Nome'
         phone: 'Telefone'
