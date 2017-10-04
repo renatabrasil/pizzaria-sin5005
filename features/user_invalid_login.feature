@@ -3,6 +3,8 @@ Feature: Invalid login
     As an user
     I want to fail the login
 
+    #TODO: Implementar
+    @skip
     Scenario: Invalid username
         Given I'm at the login page
         And there is an user with username "admin" and password "admin123"
@@ -11,6 +13,7 @@ Feature: Invalid login
         And I press the "Log in" button
         Then I should see "Log in"
 
+    @skip
     Scenario: Invalid password
         Given I'm at the login page
         And there is an user with username "admin" and password "admin123"
