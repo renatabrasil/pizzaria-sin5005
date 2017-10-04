@@ -43,7 +43,7 @@ class ClientsController < ApplicationController
     @client.destroy
 
     redirect_to clients_path
-  end
+	end
 
 	private
 		def client_params
