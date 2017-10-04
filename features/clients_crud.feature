@@ -18,7 +18,7 @@ Feature: Simple CRUD operation using clients
     And I fill in "Nome" with "Jose"
     And I fill in "Telefone" with "99999-9999"
     And I fill in "Endereço" with "Rua das Laranjeiras, 9999"
-    When I press the "Create Client" button
+    When I press the "Salvar" button
     Then I should see "Nome: Jose"
     Then I should see "Telefone: 99999-9999"
     Then I should see "Endereço: Rua das Laranjeiras, 9999"
@@ -44,7 +44,7 @@ Feature: Simple CRUD operation using clients
     When I fill in "Nome" with "Maria"
     And I fill in "Telefone" with "88888-8888"
     And I fill in "Endereço" with "Rua das Tulipas, 8888"
-    And I press the "Update Client" button
+    And I press the "Salvar" button
     Then I should see "Nome: Maria"
     Then I should see "Telefone: 88888-8888"
     Then I should see "Endereço: Rua das Tulipas, 8888"
