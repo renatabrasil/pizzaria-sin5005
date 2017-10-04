@@ -5,7 +5,7 @@
         <%= pluralize(@employee.errors.count, "erros") %> encontrados:
       </h3>
       <ul>
-        <% @client.errors.full_messages.each do |msg| %>
+        <% @employee.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
       </ul>

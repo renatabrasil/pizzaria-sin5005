@@ -1,8 +1,30 @@
 pt-BR:
   hello: "Olá Mundo!"
+  errors:
+    messages:
+      not_saved: 'Erro(s) encontrado(s):'
+
   activerecord:
     errors:
       models:
+        employee:
+          attributes:
+            name:
+              blank: 'não informado.'
+            office:
+              blank: 'não informado.'
+            salary:
+              blank: 'não informado.'
+            workload:
+              blank: 'não informada.'
+            telephone:
+              blank: 'não informado.'
+        pizza:
+          attributes:
+            name:
+              blank: 'não informado.'
+            price:
+              blank: 'não informado.'
         client:
           attributes:
             name:
@@ -11,10 +33,24 @@ pt-BR:
               blank: 'não informado.'
             address:
               blank: 'não informado.'
+        user:
+          attributes:
+            username:
+              blank: 'não informado.'
+              taken: 'já cadastrado.'
+            email:
+              blank: 'não informado.'
+              taken: 'já associado a outro usuário.'
+            password:
+              blank: 'não informada.'
+            password_confirmation:
+              confirmation: 'incorreta.'
+
     attributes:
       user:
         password: 'Senha'
         email: 'E-mail'
+        password_confirmation: 'Confirmação de senha'
       client:
         name: 'Nome'
         phone: 'Telefone'
