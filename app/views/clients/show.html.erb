@@ -1,18 +1,23 @@
+<h1>Dados do cliente</h1>
 
-<p>
-  <strong>Nome:</strong>
-  <%= @client.name %>
-</p>
- 
-<p>
-  <strong>Telefone:</strong>
-  <%= @client.phone %>
-</p>
+<div class="panel panel-default">
+  <div class="panel-heading"><h3 class="panel-title">Informações</h3></div>
+  <div class="panel-body">
 
-<p>
-  <strong>Endereço:</strong>
-  <%= @client.address %>
-</p>
+    <p>
+      <strong>Nome:</strong>
+      <%= @client.name %>
+    </p>
 
- 
-<%= link_to 'Voltar', clients_path %>
+    <p>
+      <strong>Telefone:</strong>
+      <%= @client.phone %>
+    </p>
+
+    <p>
+      <strong>Endereço:</strong>
+      <%= @client.address %>
+    </p>
+
+  </div>
+</div>

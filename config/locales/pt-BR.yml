@@ -1,6 +1,16 @@
 pt-BR:
   hello: "Olá Mundo!"
   activerecord:
+    errors:
+      models:
+        client:
+          attributes:
+            name:
+              blank: 'não informado.'
+            phone:
+              blank: 'não informado.'
+            address:
+              blank: 'não informado.'
     attributes:
       user:
         password: 'Senha'

@@ -1,9 +1,9 @@
 <% if @client.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@client.errors.count, "error") %> prohibited
-        this article from being saved:
-      </h2>
+    <div id="error_explanation" class="alert alert-danger" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <h3>
+        <%= pluralize(@client.errors.count, "erros") %> encontrados:
+      </h3>
       <ul>
         <% @client.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
@@ -12,27 +12,23 @@
     </div>
   <% end %>
 
-<%= form_for @client do |f| %>
-  <p>
+<%= form_for @client, :html => {:class => "form-container"} do |f| %>
+  <div class="form-group">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </p>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
 
-  <p>
+  <div class="form-group">
     <%= f.label :phone %><br>
-    <%= f.text_field :phone %>
-  </p>
+    <%= f.text_field :phone, class: "form-control" %>
+  </div>
 
-  <p>
+  <div class="form-group">
     <%= f.label :address %><br>
-    <%= f.text_area :address %>
-  </p>
+    <%= f.text_area :address, class: "form-control" %>
+  </div>
 
-  login:
-
-  senha:
-
-  <p>
-    <%= f.submit :Salvar%>
-  </p>
+  <div class="form-group">
+    <%= f.submit :Salvar, class: "btn btn-primary" %>
+  </div>
 <% end %>
