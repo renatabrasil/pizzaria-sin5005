@@ -1,19 +1,17 @@
 
-<h1>Listar Clientes</h1>
-<%= link_to 'Cadastrar Cliente', new_client_path %>
+<h1>Listar Pizzas</h1>
+<%= link_to 'Cadastrar Pizza', new_pizza_path %>
 <table>
   <tr>
     <th>Nome</th>
-    <th>Telefone</th>
-    <th>Endereço</th>
+    <th>Preço</th>
     <th colspan="3"></th>
   </tr>
 
   <% @pizzas.each do |pizza| %>
     <tr>
       <td><%= pizza.name %></td>
-      <td><%= pizza.phone %></td>
-      <td><%= pizza.address %></td>
+      <td><%= pizza.price %></td>
       <td><%= link_to 'Visualizar', pizza_path(pizza) %></td>
       <td><%= link_to 'Editar', edit_pizza_path(pizza) %></td>
       <td><%= link_to 'Excluir', pizza_path(pizza),

@@ -1,0 +1,44 @@
+<% if @employee.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@employee.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      <ul>
+        <% @employee.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<%= form_for @employee do |f| %>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :office %><br>
+    <%= f.text_field :office %>
+  </p>
+
+  <p>
+    <%= f.label :salary %><br>
+    <%= f.text_field :salary %>
+  </p>
+
+  <p>
+    <%= f.label :workload %><br>
+    <%= f.text_field :workload %>
+  </p>
+
+  <p>
+    <%= f.label :telephone %><br>
+    <%= f.text_field :telephone %>
+  </p>
+
+  <p>
+    <%= f.submit :Salvar%>
+  </p>
+<% end %>

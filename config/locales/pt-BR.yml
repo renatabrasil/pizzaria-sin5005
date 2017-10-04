@@ -9,3 +9,12 @@ pt-BR:
         name: 'Nome'
         phone: 'Telefone'
         address: 'Endereço'
+      pizza:
+        name: 'Nome'
+        price: 'Preço'
+      employee:
+        name: 'Nome'
+        office: 'Cargo'
+        salary: 'Salário'
+        workload: 'Carga Horária'
+        telephone: 'Telefone'
