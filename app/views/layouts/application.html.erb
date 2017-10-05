@@ -11,88 +11,92 @@
   </head>
 
   <body>
-      <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="true" aria-controls="navbar">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <%= link_to 'Pizzaria USP', root_path, {style: "color:#ffffff", class: "navbar-brand"} %>
-          </div>
-
-          <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
-            <% if user_signed_in? %>
-              <ul class="nav navbar-nav">
-               	<li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                    Funcion&aacute;rios<span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                      <li><%= link_to 'Cadastrar', new_employee_path %></li>
-                      <li><%= link_to 'Listar', employees_path %></li>
-                  </ul>
-                </li>
-
-               	<li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                    Clientes<span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                      <li><%= link_to 'Cadastrar', new_client_path %></li>
-                      <li><%= link_to 'Listar', clients_path %></li>
-                  </ul>
-                </li>
-
-               	<li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                    Pizzas<span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                      <li><%= link_to 'Cadastrar', new_pizza_path %></li>
-                      <li><%= link_to 'Listar', pizzas_path %></li>
-                  </ul>
-                </li>
-
-               	<li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                    Pedidos<span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                      <li><a href="#">Novo</a></li>
-                      <li><a href="#">Editar</a></li>
-                      <li><a href="#">Listar</a></li>
-                  </ul>
-                </li>
-
-              </ul>
-
-              <ul class="nav navbar-nav navbar-right">
-                <li class="nav-item"><p class="navbar-text">Bem vindo(a) <%= current_user.username %> (<%= current_user.email %>)</p></li>
-                <li class="active">
-                  <%= link_to(destroy_user_session_path, :method=>'delete') do %>
-                    <i class="icon-off"></i> Logout
-                  <% end %>
-                </li>
-              </ul>
-          <% else %>
-          <ul class="nav navbar-nav navbar-right">
-            <li> <%= link_to 'Cadastrar', new_user_registration_path %> </li>
-            <li class="active"> <%= link_to('Login', new_user_session_path) %> </li>
-          </ul>
-          <% end %>
-        </div>
-      </div>
-      </nav>
-      <div id="steps"></div>
-
+    <nav class="navbar navbar-inverse">
       <div class="container-fluid">
-        <%= yield %>
-      </div>
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="true" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <%= link_to 'Pizzaria USP', root_path, {style: "color:#ffffff", class: "navbar-brand"} %>
+        </div>
 
-      <footer class="footer">
+        <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+          <% if user_signed_in? %>
+            <ul class="nav navbar-nav">
+             	<li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                  Funcion&aacute;rios<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><%= link_to 'Cadastrar', new_employee_path %></li>
+                    <li><%= link_to 'Listar', employees_path %></li>
+                </ul>
+              </li>
+
+             	<li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                  Clientes<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><%= link_to 'Cadastrar', new_client_path %></li>
+                    <li><%= link_to 'Listar', clients_path %></li>
+                </ul>
+              </li>
+
+             	<li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                  Pizzas<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><%= link_to 'Cadastrar', new_pizza_path %></li>
+                    <li><%= link_to 'Listar', pizzas_path %></li>
+                </ul>
+              </li>
+
+             	<li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                  Pedidos<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Novo</a></li>
+                    <li><a href="#">Editar</a></li>
+                    <li><a href="#">Listar</a></li>
+                </ul>
+              </li>
+
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+              <li class="nav-item"><p class="navbar-text"><%= current_user.username %></p></li>
+              <li class="active">
+                <%= link_to(destroy_user_session_path, :method=>'delete') do %>
+                  <i class="icon-off"></i> Logout
+                <% end %>
+              </li>
+            </ul>
+        <% else %>
+        <ul class="nav navbar-nav navbar-right">
+          <li> <%= link_to 'Cadastrar', new_user_registration_path %> </li>
+          <li class="active"> <%= link_to('Login', new_user_session_path) %> </li>
+        </ul>
+        <% end %>
+      </div>
+    </div>
+    </nav>
+    <div id="steps"></div>
+
+    <div class="container-fluid">
+      <%= yield %>
+    </div>
+
+    <footer class="navbar-default navbar-fixed-bottom">
       <div class="container">
-             <span class="text-muted"><p>Disciplina SIN5005: Rafael Mascarenhas,
-             Renata Brasil, Wesley Lombardi</p></span>
-           </div>
-         </footer>
+
+        <span class="text-muted">
+          <h4>Disciplina SIN5005</h4>
+          <p><strong>Equipe de desenvolvimento:</strong> Rafael Mascarenhas,
+            Renata Brasil e Wesley Lombardi.</p>
+        </span>
+      </div>
+    </footer>
   </body>
 </html>

@@ -11,6 +11,11 @@
       </tr>
     </thead>
     <tbody>
+
+    <% if @pizzas.empty? %>
+      <%= render partial: 'shared/empty_data', :locals => {:total_columns => 5} %>
+    <% end %>
+
     <% @pizzas.each do |pizza| %>
       <tr>
         <td><%= pizza.name %></td>

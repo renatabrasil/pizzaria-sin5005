@@ -13,6 +13,11 @@
       </tr>
     </thead>
     <tbody>
+
+    <% if @employees.empty? %>
+      <%= render partial: 'shared/empty_data', :locals => {:total_columns => 8} %>
+    <% end %>
+
     <% @employees.each do |employee| %>
       <tr>
         <td><%= employee.name %></td>

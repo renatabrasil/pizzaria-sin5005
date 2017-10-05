@@ -1,0 +1,7 @@
+<div class="btn-group" role="group" aria-label="...">
+  <a href="#" onclick="window.history.back();" class="btn btn-default">Voltar</a>
+  <%= link_to "Editar", edit_path, class: "btn btn-default" %>
+  <%= link_to 'Excluir', destroy_path,
+          method: :delete,
+          data: { confirm: 'Tem certeza que deseja exluir esse registro?' }, class: "btn btn-default" %>
+</div>

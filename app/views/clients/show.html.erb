@@ -20,4 +20,9 @@
     </p>
 
   </div>
+
+  <div class="panel-footer">
+    <%= render partial: 'shared/crud_buttons',
+      :locals => {:edit_path => edit_client_path, :destroy_path => client_path} %>
+  </div>
 </div>

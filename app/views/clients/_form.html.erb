@@ -30,5 +30,8 @@
 
   <div class="form-group">
     <%= f.submit :Salvar, class: "btn btn-primary" %>
+    <%=link_to 'Cancelar', root_path,
+      data: { confirm: 'Tem certeza que deseja cancelar essa operação?' },
+      class: "btn btn-default" %>
   </div>
 <% end %>

@@ -12,6 +12,11 @@
       </tr>
     </thead>
     <tbody>
+
+    <% if @clients.empty? %>
+      <%= render partial: 'shared/empty_data', :locals => {:total_columns => 6} %>
+    <% end %>
+
     <% @clients.each do |client| %>
       <tr>
         <td><%= client.name %></td>
