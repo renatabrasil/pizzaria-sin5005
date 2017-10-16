@@ -10,7 +10,7 @@ Feature: Simple CRUD operation using clients
 #TODO: Implementar
 
 # Create cases
-  @skip
+  
   Scenario: Should be able to create a new client
     Given I'm logged in as user
     Given I am on the home page
