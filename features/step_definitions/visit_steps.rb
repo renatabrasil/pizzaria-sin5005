@@ -12,6 +12,10 @@ When(/^I go to the edit clients form$/) do
   visit edit_client_path
 end
 
+When(/^I go to the clients page$/) do
+  visit clients_path
+end
+
 Given(/^I'm at the login page$/) do
   visit new_user_session_path
 end
