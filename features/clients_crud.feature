@@ -27,8 +27,14 @@ Feature: Simple CRUD operation using clients
 
 # Pending: especificar melhor
   Scenario: User cannot create a new client
+    Given I'm logged in as user
     Given I am on the home page
-    Then I should not see "Cadastrar Cliente"
+    When I go to the new clients form
+    Then I should see "Cadastrar Cliente"
+    And I fill in "Nome" with "Jose"
+    And I fill in "Endereço" with "Rua das Laranjeiras, 9999"
+    When I press the "Salvar" button
+    Then I should see "erro(s) encontrado(s)"
 
 # Fim
 
