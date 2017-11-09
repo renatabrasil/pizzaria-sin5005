@@ -47,7 +47,7 @@ Feature: Simple CRUD operation using clients
     When I go to the clients page
     Then I should see "Listar Clientes"
     And I should see "Jose"
-    And I click on "Editar" link
+    And I click on "Editar" in "Jose" row
     And I should see "Editar cliente"
     And I fill in "Nome" with "Maria"
     And I fill in "Telefone" with "88888-8888"
@@ -59,8 +59,15 @@ Feature: Simple CRUD operation using clients
 
   # Pending: especificar melhor
   Scenario: User cannot edit a existing client
+    Given I'm logged in as user
     Given I am on the home page
-    Then I should not see "Listar Clientes"
+    When I go to the clients page
+    Then I should see "Listar Clientes"
+    And I should see "Jose"
+    And I click on "Editar" in "Jose" row
+    And I fill in "Nome" with ""
+    When I press the "Salvar" button
+    Then I should see "erro(s) encontrado(s)"
 
   # Fim
   Scenario: Should be able to read a existing client
@@ -70,7 +77,7 @@ Feature: Simple CRUD operation using clients
     When I go to the clients page
     Then I should see "Listar Clientes"
     And I should see "Jose"
-    And I click on "Visualizar" link
+    And I click on "Visualizar" in "Jose" row
     Then I should see "Nome: Jose"
     And I should see "Telefone: 99999-9999"
     And I should see "Endereço: Rua das Laranjeiras, 9999"
@@ -105,7 +112,7 @@ Feature: Simple CRUD operation using clients
     When I go to the clients page
     Then I should see "Listar Clientes"
     And I should see "Jose"
-    And I click on "Excluir" link
+    And I click on "Excluir" in "Jose" row
     And I should not see "Jose"
 
   # Pending: especificar melhor

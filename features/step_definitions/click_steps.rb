@@ -7,6 +7,6 @@ When(/^I click the "(.*?)" link$/) do |link|
   click_link(link)
 end
 
-When /^I click on "([^\"]+)" link$/ do |text|
-  find('tr', text: text).click_link(text)
+When /^I click on "([^\"]+)" in "(.*?)" row$/ do |text_button, text|
+  find('tr', text: text).click_link(text_button)
 end

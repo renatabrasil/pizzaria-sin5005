@@ -8,6 +8,8 @@ SimpleCov.start 'rails'
 
 require 'cucumber/rails'
 
+World(FactoryGirl::Syntax::Methods)
+
 Before ('@skip') do |scenario|
   pending
 end
