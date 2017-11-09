@@ -64,3 +64,5 @@ pt-BR:
         salary: 'Salário'
         workload: 'Carga Horária'
         telephone: 'Telefone'
+      order:
+        value: 'Valor'

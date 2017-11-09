@@ -10,21 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171004212401) do
+ActiveRecord::Schema.define(version: 20171109191018) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "activities", id: :serial, force: :cascade do |t|
-    t.string "name", limit: 500
-    t.text "description"
-    t.string "period", limit: 100
-    t.boolean "active", default: true
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "priority"
-    t.index ["priority"], name: "index_activities_on_priority", unique: true
-  end
 
   create_table "clients", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -49,9 +38,24 @@ ActiveRecord::Schema.define(version: 20171004212401) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "order_items", force: :cascade do |t|
+    t.bigint "pizza_id"
+    t.bigint "order_id"
+    t.integer "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_order_items_on_order_id"
+    t.index ["pizza_id"], name: "index_order_items_on_pizza_id"
+  end
+
   create_table "orders", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "client_id"
+    t.bigint "employee_id", null: false
+    t.decimal "value", precision: 8, scale: 2
+    t.index ["client_id"], name: "index_orders_on_client_id"
+    t.index ["employee_id"], name: "index_orders_on_employee_id"
   end
 
   create_table "pizzas", force: :cascade do |t|
@@ -80,7 +84,9 @@ ActiveRecord::Schema.define(version: 20171004212401) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "username"
+    t.bigint "employee_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["employee_id"], name: "index_users_on_employee_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
   end

@@ -1,0 +1,68 @@
+<% if @order.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <h3>
+        <%= pluralize(@order.errors.count, "erro(s)") %> encontrado(s):
+      </h3>
+      <ul>
+        <% @order.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<%= form_for @order, :html => {:class => "form"} do |f| %>
+  <div class="form-group">
+    <%= f.label :employee %><br>
+    <%= @order.employee.name %>
+    <%= hidden_field(:order, :employee_id) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :client %><br>
+    <%= f.collection_select(:client_id, Client.all, :id, :name, {:prompt=>true},
+    {:class=>'form-control'}) %>
+  </div>
+
+  <h4>Itens do pedido</h4>
+
+  <table class="table table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Sabor</th>
+        <th>Preço</th>
+        <th>Quantidade</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% Pizza.all.each do |pizza| %>
+        <%= f.fields_for :order_items do |item_form| %>
+          <tr>
+            <td><%= item_form.check_box :pizza_id, {}, pizza.id %></td>
+            <td><%= pizza.name %></td>
+            <td><%= pizza.price %></td>
+            <td><%= item_form.text_field :quantity, class: "form-control" %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+
+
+  <div class="form-group">
+    <%= f.label :value %><br>
+
+  </div>
+
+
+
+
+  <div class="form-group">
+    <%= f.submit :Salvar, class: "btn btn-primary" %>
+    <%=link_to 'Cancelar', root_path,
+      data: { confirm: 'Tem certeza que deseja cancelar essa operação?' },
+      class: "btn btn-default" %>
+  </div>
+<% end %>
