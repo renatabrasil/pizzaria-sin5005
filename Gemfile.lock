@@ -46,6 +46,7 @@ GEM
     bindex (0.5.0)
     builder (3.2.3)
     byebug (9.1.0)
+    cancancan (2.1.1)
     capybara (2.15.1)
       addressable
       mini_mime (>= 0.1.3)
@@ -97,6 +98,7 @@ GEM
       factory_girl (~> 4.8.0)
       railties (>= 3.0.0)
     ffi (1.9.18)
+    ffi (1.9.18-x86-mingw32)
     gherkin (4.1.3)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
@@ -125,11 +127,14 @@ GEM
     nio4r (2.1.0)
     nokogiri (1.8.0)
       mini_portile2 (~> 2.2.0)
+    nokogiri (1.8.0-x86-mingw32)
+      mini_portile2 (~> 2.2.0)
     orm_adapter (0.5.0)
     parallel (1.12.0)
     parser (2.4.0.0)
       ast (~> 2.2)
     pg (0.20.0)
+    pg (0.20.0-x86-mingw32)
     powerpack (0.1.1)
     public_suffix (3.0.0)
     puma (3.10.0)
@@ -234,6 +239,8 @@ GEM
     turbolinks-source (5.0.3)
     tzinfo (1.2.3)
       thread_safe (~> 0.1)
+    tzinfo-data (1.2017.2)
+      tzinfo (>= 1.0.0)
     uglifier (3.2.0)
       execjs (>= 0.3.0, < 3)
     unicode-display_width (1.3.0)
@@ -252,9 +259,12 @@ GEM
 
 PLATFORMS
   ruby
+  x86-mingw32
 
 DEPENDENCIES
   byebug
+  cancan
+  cancancan
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
   cucumber-rails
@@ -279,4 +289,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   1.15.0
+   1.16.0.pre.2

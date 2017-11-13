@@ -22,9 +22,11 @@
         <td><%= pizza.price %></td>
         <td><%= link_to 'Visualizar', pizza_path(pizza) %></td>
         <td><%= link_to 'Editar', edit_pizza_path(pizza) %></td>
-        <td><%= link_to 'Excluir', pizza_path(pizza),
-                method: :delete,
-                data: { confirm: 'Are you sure?' } %></td>
+		<% if can? :delete, Pizza %>	
+			<td><%= link_to 'Excluir', pizza_path(pizza),
+					method: :delete,
+					data: { confirm: 'Are you sure?' } %></td>
+		<% end %>
       </tr>
     </tbody>
     <% end %>
