@@ -9,3 +9,8 @@ end
 Given(/^there is an user with username "(.*?)" and password "(.*?)"$/) do |username, password|
   User.create(username: username, password: password)
 end
+
+
+Given(/^there is a pizza with name "(.*?)" and price "(.*?)"$/) do |name, price|
+  Pizza.create(name: name, price: price)
+end
