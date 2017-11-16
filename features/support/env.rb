@@ -14,6 +14,10 @@ Before ('@skip') do |scenario|
   pending
 end
 
+# After do |scenario|
+#   save_and_open_page if scenario.failed?
+# end
+
 
 # Capybara defaults to CSS3 selectors rather than XPath.
 # If you'd prefer to use XPath, just uncomment this line and adjust any

@@ -50,7 +50,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'database_cleaner'
 
-  # gem 'factory_girl_rails', '~> 4.5'
+  gem 'factory_girl_rails', '~> 4.5'
 
   gem 'rubocop', '~> 0.50.0', require: false
   gem 'simplecov', :require => false, :group => :test
