@@ -4,6 +4,8 @@ Given(/^I am on the home page$/) do
   visit root_path
 end
 
+
+# Client
 When(/^I go to the new clients form$/) do
   visit new_client_path
 end
@@ -17,7 +19,6 @@ When(/^I go to the clients page$/) do
 end
 
 # Pizza
-
 When(/^I go to the new pizzas form$/) do
   visit new_pizza_path
 end
@@ -28,6 +29,19 @@ end
 
 When(/^I go to the pizzas page$/) do
   visit pizzas_path
+end
+
+# Employee
+When(/^I go to the new employees form$/) do
+  visit new_employee_path
+end
+
+When(/^I go to the edit employees form$/) do
+  visit edit_employee_path
+end
+
+When(/^I go to the employees page$/) do
+  visit employees_path
 end
 
 
