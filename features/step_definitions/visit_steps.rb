@@ -44,7 +44,18 @@ When(/^I go to the employees page$/) do
   visit employees_path
 end
 
+# Order
+When(/^I go to the new orders form$/) do
+  visit new_order_path
+end
 
+When(/^I go to the edit orders form$/) do
+  visit edit_order_path
+end
+
+When(/^I go to the orders page$/) do
+  visit orders_path
+end
 
 Given(/^I'm at the login page$/) do
   visit new_user_session_path

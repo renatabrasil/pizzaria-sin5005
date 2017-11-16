@@ -17,3 +17,7 @@ end
 Given(/^there is an employee with name "(.*?)" office "(.*?)" salary "(.*?)" workload "(.*?)" and telephone "(.*?)"$/) do |name, office, salary, workload, telephone|
   Employee.create(name: name, office: office, salary: salary, workload: workload, telephone: telephone)
 end
+
+# Given(/^there is a order with username "(.*?)" and password "(.*?)"$/) do |username, password|
+#   User.create(username: username, password: password)
+# end
