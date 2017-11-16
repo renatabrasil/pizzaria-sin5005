@@ -12,6 +12,14 @@ employee = Employee.create! :name => 'Dono', :office => 'Gerente',
 user = User.create! :username => 'admin', :email => 'admin@gmail.com',
   :password => 'admin123', :password_confirmation => 'admin123', :employee_id => employee.id
 
+Client.create! :name => 'Michel Miguel Elias Temer', :phone => '(11) 99999-9999',
+  :address => 'Palacio da Jaburu - Lago Paranoá, Brasília - DF, 70297-400'
+Client.create! :name => 'Fausto Corrêa da Silva', :phone => '(11) 99999-9999',
+    :address => 'Estrada dos Bandeirantes, 6900, Rio de Janeiro - RJ, Brasil.
+    CEP: 22.780-086'
+Client.create! :name => 'Senor Abravanel', :phone => '(11) 99999-9999',
+      :address => 'Av. das Comunicações, n° 04 - Vila Jaraguá CEP 06278-905'
+
 Pizza.create! :name => 'Frango com Catupiry', :price => '57,00'
 Pizza.create! :name => 'Italiana', :price => '57,00'
 Pizza.create! :name => 'Lombinho', :price => '60,00'
