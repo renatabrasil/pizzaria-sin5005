@@ -24,9 +24,11 @@
         <td><%= client.address %></td>
         <td><%= link_to 'Visualizar', client_path(client) %></td>
         <td><%= link_to 'Editar', edit_client_path(client) %></td>
-        <td><%= link_to 'Excluir', client_path(client),
+		<% if can? :delete, Client %>	
+			<td><%= link_to 'Excluir', client_path(client),
                 method: :delete,
                 data: { confirm: 'Are you sure?' } %></td>
+		<% end %>
       </tr>
     <% end %>
   </tbody>
