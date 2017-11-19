@@ -1,27 +1,96 @@
-<h1>Dados do cliente</h1>
+<h1>Dados do Pedido</h1>
 
 <div class="panel panel-default">
-  <div class="panel-heading"><h3 class="panel-title">Informações</h3></div>
   <div class="panel-body">
 
+    <h4>
+      <strong>Número do Pedido:</strong>
+      <span class="text-info"><%= @order.number_id %></span>
+      <div class="pull-right hidden-print">
+        <a href="#" onclick="window.print();return false;">
+          <i class="glyphicon glyphicon-print" title="Imprimir Pedido"></i>
+        </a>
+      </div>
+    </h4>
+
+    <hr/>
+
     <p>
-      <strong>Nome:</strong>
-      <%= @order.inspect %>
+      <strong>Data de Cadastro:</strong>
+      <%= full_date_alt @order.created_at %>
     </p>
 
     <p>
-      <strong>Telefone:</strong>
-      <%= @order.inspect %>
+      <strong>Vendedor:</strong>
+      <%= @order.employee.name %>
     </p>
 
     <p>
-      <strong>Endereço:</strong>
-      <%= @order.inspect %>
+      <strong>Cliente:</strong>
+      <%= @order.client.name %>
     </p>
+
+    <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading"><h5><strong>Itens</strong></h5></div>
+
+      <!-- Table -->
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Sabor</th>
+            <th style="text-align: right">Preço</th>
+            <th style="text-align: center">Quantidade</th>
+            <th style="text-align: right">Valor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @order.order_items.each do |item| %>
+              <tr>
+                <div class="row">
+                  <td><%= item.pizza.name %></td>
+                  <td style="text-align: right"><%= item.pizza.price %></td>
+                  <td style="text-align: center">
+                    <%= item.quantity %>
+                  </td>
+                  <td style="text-align: right">
+                    <%= number_to_currency(item.pizza.price.to_f * item.quantity, unit: "R$ ", separator: ",") %>
+                  </td>
+                </div>
+              </tr>
+          <% end %>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td style="text-align: right">
+              <strong>Total:
+                <%= number_to_currency(@order.value, unit: "R$ ", separator: ",") %>
+              </strong>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+
+
+    <br/>
+    <div class="panel panel-default">
+      <div class="panel-heading"><h5><strong>Endereço de entrega:</strong></h5></div>
+      <div class="panel-body">
+        <address>
+          <strong><%= @order.client.name %></strong><br>
+          <%= @order.client.address %><br>
+          Telefone: <%= @order.client.phone %>
+        </address>
+      </div>
+    </div>
 
   </div>
 
-  <div class="panel-footer">
+  <div class="panel-footer hidden-print">
     <%= render partial: 'shared/crud_buttons',
       :locals => {:edit_path => edit_order_path, :destroy_path => order_path} %>
   </div>
