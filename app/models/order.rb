@@ -1,13 +1,11 @@
 class Order < ApplicationRecord
-  # item: pizza (valor) e quantidade
-  # valor total
-  # Cliente
-  # funcionario
   # status (pra eu colocar com bootstrap o andamento do pedido)
   before_save :validate_order_items
   before_save :calculate_order_value
+  after_save :assign_order_number_id
 
   validates :employee, presence: true
+  # validates :number_id, uniqueness: true
 
   has_many :order_items
   has_many :pizzas, through: :order_items
@@ -38,6 +36,11 @@ class Order < ApplicationRecord
       end
     end
     self.order_items = self.order_items - empty_items
+  end
+
+  def assign_order_number_id
+    number_id = self.id.to_s.rjust(6, '0')
+    self.update_column(:number_id, number_id)
   end
 
 end

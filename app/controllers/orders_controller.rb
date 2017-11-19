@@ -23,7 +23,7 @@ class OrdersController < ApplicationController
     # @order.order_items.new(order_params)
 
   	if @order.save
-	    redirect_to @order
+	    redirect_to orders_path
   	else
 	    render 'new'
 		end
