@@ -12,17 +12,20 @@
     </div>
   <% end %>
 
+
 <%= form_for @order, :html => {:class => "form"} do |f| %>
   <div class="form-group">
     <%= f.label :employee %><br>
     <%= @order.employee.name %>
-    <!-- <%= hidden_field(:order, :employee_id) %> -->
+    <%= hidden_field(:order, :employee_id, :value => @order.employee.id) %>
   </div>
 
-  <div class="form-group">
-    <%= f.label :client %><br>
-    <%= f.collection_select(:client_id, Client.all, :id, :name, {:prompt=>true},
-    {:class=>'form-control'}) %>
+  <div class="form-group row">
+    <div class="col-md-4">
+      <%= f.label :client %><br>
+      <%= f.collection_select(:client_id, Client.all, :id, :name, {:prompt=>true},
+      {:class=>'form-control'}) %>
+    </div>
   </div>
 
   <h4>Itens do pedido</h4>
@@ -30,9 +33,9 @@
   <table class="table table">
     <thead>
       <tr>
-        <th></th>
+        <!-- <th></th> -->
         <th>Sabor</th>
-        <th>Preço</th>
+        <th style="text-align: right">Preço</th>
         <th>Quantidade</th>
       </tr>
     </thead>
@@ -40,27 +43,37 @@
       <% Pizza.all.each do |pizza| %>
         <%= f.fields_for :order_items do |item_form| %>
           <tr>
-            <td><%= item_form.check_box :pizza_id, {}, pizza.id %></td>
-            <td><%= pizza.name %></td>
-            <td><%= pizza.price %></td>
-            <td><%= item_form.text_field :quantity, class: "form-control" %></td>
+            <div class="row">
+              <!-- <td><%= item_form.check_box :pizza_id, {}, pizza.id %></td> -->
+              <td><%= pizza.name %></td>
+              <td style="text-align: right"><%= pizza.price %></td>
+              <td style="text-align: right">
+                <div class="col-md-3">
+                  <%= item_form.number_field :quantity, in: 0.0..20.0, step: 1.0, class: "form-control" %>
+                  <%= item_form.hidden_field(:pizza_id, :value => pizza.id) %>
+                </div>
+              </td>
+            </div>
           </tr>
         <% end %>
       <% end %>
     </tbody>
+    <tfoot>
+      <tr>
+        <td></td>
+        <td style="text-align: right"><%= f.label :value %>: R$ 0,00<br></td>
+        <td></td>
+      </tr>
+    </tfoot>
   </table>
 
 
-  <div class="form-group">
-    <%= f.label :value %><br>
-
-  </div>
 
 
 
 
   <div class="form-group">
-    <%= f.submit :Salvar, class: "btn btn-primary" %>
+    <%= f.submit :Finalizar, class: "btn btn-primary" %>
     <%=link_to 'Cancelar', root_path,
       data: { confirm: 'Tem certeza que deseja cancelar essa operação?' },
       class: "btn btn-default" %>

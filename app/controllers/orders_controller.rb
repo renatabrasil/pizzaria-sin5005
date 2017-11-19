@@ -54,7 +54,7 @@ class OrdersController < ApplicationController
   private
     def order_params
       params.require(:order).permit(:client_id, :employee_id, :value, :order_item_ids,
-      order_item_attributes: [:quantity, :pizza_id, :order_id])
+      order_items_attributes: [:quantity, :pizza_id, :id])
     end
 
 end

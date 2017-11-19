@@ -4,8 +4,9 @@ class Order < ApplicationRecord
   # Cliente
   # funcionario
   # status (pra eu colocar com bootstrap o andamento do pedido)
+  before_save :validate_order_items
   before_save :calculate_order_value
-  
+
   validates :employee, presence: true
 
   has_many :order_items
@@ -24,6 +25,19 @@ class Order < ApplicationRecord
       end
     end
     self.value = value
+  end
+
+  # TODO: Otimizar esse código. Pode ser que tenha uma configuração para has_many
+  # through que possa pegar só os elementos com alguns campos preenchidos.
+  def validate_order_items
+    empty_items = []
+    self.order_items.each do |item|
+      if (item.quantity.nil? || item.quantity == 0)
+        puts item.quantity
+        empty_items.push(item)
+      end
+    end
+    self.order_items = self.order_items - empty_items
   end
 
 end
