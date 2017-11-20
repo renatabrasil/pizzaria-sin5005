@@ -2,12 +2,18 @@
 
 <div class="panel panel-default">
   <div class="panel-body">
+    <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
     <h4>
       <strong>Número do Pedido:</strong>
       <span class="text-info"><%= @order.number_id %></span>
       <div class="pull-right hidden-print">
         <% unless @answer.nil? || !@answer %>
-          <%= link_to "Atender", answer_order_path(@order), class: "btn btn-primary" %>
+          <%= form_with(model: @order) do |f| %>
+            <%= hidden_field_tag(:answer, true) %>
+            <%= f.submit :Atender, class: "btn btn-primary" %>
+          <% end %>
         <% else %>
           <a href="#" onclick="window.print();return false;">
             <i class="glyphicon glyphicon-print" title="Imprimir Pedido"></i>

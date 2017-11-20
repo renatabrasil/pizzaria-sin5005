@@ -8,7 +8,13 @@ class OrdersController < ApplicationController
   end
 
   def index
-    @orders = Order.all
+    @status = params[:status]
+    unless @status.nil?
+      @orders = Order.where(status: @status)
+    else
+      @orders = Order.all
+    end
+
   end
 
   def new
@@ -39,9 +45,17 @@ class OrdersController < ApplicationController
   def update
 	  @order = Order.find(params[:id])
 
+    @answer = params[:answer]
+    unless @answer.nil?
+      @order.update_column(:status, OrderStatus::PREPARING)
+      params.delete :answer
+      flash[:success] = "Pedido atendido com sucesso. Acompanhe o preparo."
+      redirect_to @order
+    end
+
 	  if @order.update(order_params)
 	    redirect_to @order
-	  elseredr
+	  else
 	    render 'edit'
 	  end
 	end

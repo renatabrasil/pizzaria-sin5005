@@ -35,7 +35,17 @@
         </td>
         <td><%= order.status %></td>
         <td style="text-align: right;"><%= number_to_currency(order.value, unit: "", separator: ",", delimiter: ".") %></td>
-        <td><%= link_to 'Atender', order_path(order.id, :answer => true) %></td>
+        <td>
+          <% if !@status.nil? %>
+            <% if @status == OrderStatus::REGISTERED %>
+              <%= link_to 'Atender', order_path(order.id, :answer => true) %>
+            <% elsif @status == OrderStatus::PREPARING %>
+              <%= link_to 'Entregar', order_path(order.id, :answer => true) %>
+            <% elsif @status == OrderStatus::DELIVERING %>
+              <%= link_to 'Fechar Pedido', order_path(order.id, :answer => true) %>
+            <% end %>
+          <% end %>
+        </td>
         <td><%= link_to 'Editar', edit_order_path(order) %></td>
         <td><%= link_to 'Excluir', order_path(order),
                 method: :delete,
