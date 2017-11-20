@@ -6,7 +6,7 @@
     <thead>
       <tr>
         <th>Nome</th>
-        <th>Telefone</th>
+        <th style="text-align: center">Telefone</th>
         <th>Endereço</th>
         <th colspan="3" width="18%"></th>
       </tr>
@@ -20,11 +20,11 @@
     <% @clients.each do |client| %>
       <tr>
         <td><%= client.name %></td>
-        <td><%= client.phone %></td>
+        <td style="text-align: center"><%= client.phone %></td>
         <td><%= client.address %></td>
         <td><%= link_to 'Visualizar', client_path(client) %></td>
         <td><%= link_to 'Editar', edit_client_path(client) %></td>
-		<% if can? :delete, Client %>	
+		<% if can? :delete, Client %>
 			<td><%= link_to 'Excluir', client_path(client),
                 method: :delete,
                 data: { confirm: 'Are you sure?' } %></td>
