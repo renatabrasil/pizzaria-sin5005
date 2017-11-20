@@ -79,8 +79,8 @@ Feature: Simple CRUD operation using employees
     And I click on "Visualizar" in "Trump" row
     Then I should see "Nome: Trump"
     Then I should see "Cargo: Gerente"
-    Then I should see "Salário: 200000.0"
-    Then I should see "Carga Horária: 20"
+    Then I should see "Salário: R$ 200.000,00"
+    Then I should see "Carga Horária (h/semana): 20"
     And I should see "Telefone: (11) 99999-9999"
 
   # Pending: especificar melhor
@@ -96,12 +96,12 @@ Feature: Simple CRUD operation using employees
     Then I should see "Listar Funcionários"
     And I should see "Nome"
     And I should see "Cargo"
-    And I should see "Salário"
-    And I should see "Carga Horária"
+    And I should see "Salário (R$)"
+    And I should see "Carga Horária (h/semana)"
     And I should see "Telefone"
     And I should see "Trump"
     And I should see "Gerente"
-    And I should see "200000.0"
+    And I should see "200.000,00"
     And I should see "20"
     And I should see "(11) 99999-9999"
 

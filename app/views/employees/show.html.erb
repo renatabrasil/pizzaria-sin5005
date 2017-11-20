@@ -15,11 +15,11 @@
 
     <p>
       <strong>Salário:</strong>
-      <%= @employee.salary %>
+      <%= number_to_currency(@employee.salary, unit: "R$ ", separator: ",", delimiter: ".") %>
     </p>
 
     <p>
-      <strong>Carga Horária:</strong>
+      <strong>Carga Horária (h/semana):</strong>
       <%= @employee.workload %>
     </p>
 

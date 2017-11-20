@@ -7,8 +7,8 @@
         <th>Nome</th>
         <th>Cargo</th>
         <th style="text-align: right">Salário (R$)</th>
-        <th style="text-align: center">Carga Horária (h)</th>
-        <th>Telefone</th>
+        <th style="text-align: center">Carga Horária (h/semana)</th>
+        <th style="text-align: center">Telefone</th>
         <th colspan="3" width="18%"></th>
       </tr>
     </thead>
@@ -22,9 +22,9 @@
       <tr>
         <td><%= employee.name %></td>
         <td><%= employee.office %></td>
-        <td style="text-align: right"><%= number_to_currency(employee.salary, unit: "", separator: ",", delimiter: "") %></td>
+        <td style="text-align: right"><%= number_to_currency(employee.salary, unit: "", separator: ",", delimiter: ".") %></td>
         <td style="text-align: center"><%= employee.workload %></td>
-        <td><%= employee.telephone %></td>
+        <td style="text-align: center"><%= employee.telephone %></td>
         <td><%= link_to 'Visualizar', employee_path(employee) %></td>
         <td><%= link_to 'Editar', edit_employee_path(employee) %></td>
         <td><%= link_to 'Excluir', employee_path(employee),
