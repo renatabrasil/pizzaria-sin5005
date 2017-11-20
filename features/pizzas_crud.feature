@@ -4,7 +4,7 @@ Feature: Simple CRUD operation using pizzas
   I want to be able to manage the pizzas registration
 
   Background:
-    Given there is a pizza with name "Calabresa" and price "60.0"
+    Given there is a pizza with name "Calabresa" and price "60,00"
     Given there is an user with username "admin" and password "admin123"
 
 #TODO: Implementar
@@ -72,7 +72,7 @@ Feature: Simple CRUD operation using pizzas
     And I should see "Calabresa"
     And I click on "Visualizar" in "Calabresa" row
     Then I should see "Nome: Calabresa"
-    And I should see "Preço: 60.0"
+    And I should see "Preço (R$): 60,00"
 
   # Pending: especificar melhor
   Scenario: User cannot read a existing pizza
@@ -86,9 +86,9 @@ Feature: Simple CRUD operation using pizzas
     When I go to the pizzas page
     Then I should see "Listar Pizzas"
     And I should see "Nome"
-    And I should see "Preço"
+    And I should see "Preço (R$)"
     And I should see "Calabresa"
-    And I should see "60.0"
+    And I should see "60,00"
 
   # Pending: especificar melhor
   Scenario: User cannot read pizzas

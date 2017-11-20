@@ -6,7 +6,7 @@
     <thead>
       <tr>
         <th>Nome</th>
-        <th>Preço</th>
+        <th style="text-align: center">Preço (R$)</th>
         <th colspan="3" width="18%"></th>
       </tr>
     </thead>
@@ -19,10 +19,10 @@
     <% @pizzas.each do |pizza| %>
       <tr>
         <td><%= pizza.name %></td>
-        <td><%= pizza.price %></td>
+        <td style="text-align: center"><%= pizza.price %></td>
         <td><%= link_to 'Visualizar', pizza_path(pizza) %></td>
         <td><%= link_to 'Editar', edit_pizza_path(pizza) %></td>
-		<% if can? :delete, Pizza %>	
+		<% if can? :delete, Pizza %>
 			<td><%= link_to 'Excluir', pizza_path(pizza),
 					method: :delete,
 					data: { confirm: 'Are you sure?' } %></td>
