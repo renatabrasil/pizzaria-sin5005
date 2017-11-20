@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
 
+  # TODO: talvez possa fazer tudo com o edit e o update
   def answer
 
     @order = Order.find(params[:id])
@@ -40,7 +41,7 @@ class OrdersController < ApplicationController
 
 	  if @order.update(order_params)
 	    redirect_to @order
-	  else
+	  elseredr
 	    render 'edit'
 	  end
 	end
@@ -63,8 +64,8 @@ class OrdersController < ApplicationController
 
   private
     def order_params
-      params.require(:order).permit(:client_id, :employee_id, :value, :order_item_ids,
-      order_items_attributes: [:quantity, :pizza_id, :id])
+      params.require(:order).permit(:client_id, :employee_id, :value, :status,
+      :order_item_ids, order_items_attributes: [:quantity, :pizza_id, :id])
     end
 
 end
