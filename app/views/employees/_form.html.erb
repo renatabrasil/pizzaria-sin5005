@@ -25,17 +25,17 @@
 
   <div class="form-group">
     <%= f.label :salary %><br>
-    <%= f.text_field :salary, class: "form-control" %>
+    <%= f.number_field :salary,  value: number_to_currency(f.object.salary.to_f, delimiter: '', unit: ''), in: 0.00..10000000.00, step: 0.01, class: "form-control" %>
   </div>
 
   <div class="form-group">
     <%= f.label :workload %><br>
-    <%= f.text_field :workload, class: "form-control" %>
+    <%= f.number_field :workload, in: 6.0..44.0, step: 1.0, class: "form-control" %>
   </div>
 
   <div class="form-group">
     <%= f.label :telephone %><br>
-    <%= f.text_field :telephone, class: "form-control" %>
+    <%= f.telephone_field :telephone, class: "form-control phone" %>
   </div>
 
   <div class="form-group">

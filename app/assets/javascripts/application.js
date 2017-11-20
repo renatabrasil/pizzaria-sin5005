@@ -10,7 +10,18 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+// FIXME: o jquery ou maskedinput tá trazendo erros. Olhar no console do servidor.
+//= require jquery
+//= require maskedinput
 //= require rails-ujs
 //= require turbolinks
 //= require bootstrap.min
 //= require_tree .
+
+// $ ->
+  //  $(".phone").mask("(999) 999-9999")
+
+
+$(document).ready(function(){
+  $(".phone").mask("(99) 99999-9999");
+});
