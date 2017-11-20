@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PizzariaSIN5005</title>
+    <title>Pizzaria USP</title>
     <%= csrf_meta_tags %>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -62,9 +62,10 @@
                 <ul class="dropdown-menu">
                     <li><%= link_to 'Novo', new_order_path %></li>
                     <li><%= link_to 'Listar', orders_path %></li>
+                    <li role="separator" class="divider"></li>
                 </ul>
               </li>
-
+              <li class="nav navbar-nav"><%= link_to 'Relatório de Vendas', orders_path %></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">

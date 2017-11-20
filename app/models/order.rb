@@ -14,6 +14,10 @@ class Order < ApplicationRecord
 
   accepts_nested_attributes_for :order_items, reject_if: :all_blank, allow_destroy: true
 
+  after_initialize do |order|
+    self.status = OrderStatus::REGISTERED
+  end
+
   def calculate_order_value
     value = 0.0
     unless self.order_items.empty?

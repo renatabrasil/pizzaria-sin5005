@@ -17,7 +17,7 @@
     <tbody>
 
     <% if @orders.empty? %>
-      <%= render partial: 'shared/empty_data', :locals => {:total_columns => 6} %>
+      <%= render partial: 'shared/empty_data', :locals => {:total_columns => 8} %>
     <% end %>
 
     <% @orders.each do |order| %>
@@ -33,8 +33,9 @@
             <% end %>
           <% end %>
         </td>
-        <td></td>
+        <td><%= order.status %></td>
         <td style="text-align: right;"><%= number_to_currency(order.value, unit: "R$ ", separator: ",", delimiter: "") %></td>
+        <td><%= link_to 'Atender', answer_order_path(order.id) %></td>
         <td><%= link_to 'Editar', edit_order_path(order) %></td>
         <td><%= link_to 'Excluir', order_path(order),
                 method: :delete,

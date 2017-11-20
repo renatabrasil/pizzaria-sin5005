@@ -1,6 +1,10 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
 
+  def answer
+    @order = Order.find(params[:id])
+  end
+
   def index
     @orders = Order.all
   end
@@ -10,6 +14,7 @@ class OrdersController < ApplicationController
     # puts current_user.employee.name
     # @order.order_items.build
     # @order.order_items.new
+    @order.status = OrderStatus::REGISTERED
     @order.order_items.build
     @order.employee = current_user.employee
   end
