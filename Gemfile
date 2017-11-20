@@ -23,6 +23,11 @@ gem 'uglifier', '>= 1.3.0'
 gem 'devise'
 gem 'cancancan'
 
+
+gem 'mini_magick'
+gem 'carrierwave'
+gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
+
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 

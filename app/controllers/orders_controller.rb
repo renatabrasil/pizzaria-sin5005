@@ -2,6 +2,7 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!
 
   def answer
+
     @order = Order.find(params[:id])
   end
 
@@ -47,6 +48,10 @@ class OrdersController < ApplicationController
 
 	def show
 		@order = Order.find(params[:id])
+    if !params[:answer].nil? or params[:answer] === true
+      @answer = true
+
+    end
 	end
 
 	def destroy
