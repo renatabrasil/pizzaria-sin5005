@@ -23,7 +23,7 @@
     <% @orders.each do |order| %>
       <tr>
         <td style="text-align: right;"><%= link_to order.number_id, order_path(order.id) %></td>
-        <td><%= order.employee.name %></td>
+        <td><%= order.employee.user.username %></td>
         <td><%= link_to order.client.name, client_path(order.client.id) %></td>
         <td>
           <% order.order_items.each_with_index do |item, i| %>
