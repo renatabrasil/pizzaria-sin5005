@@ -23,6 +23,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'devise'
 gem 'cancancan'
 
+gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',
+                              :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
 
 # gem 'mini_magick'
 # gem 'carrierwave'

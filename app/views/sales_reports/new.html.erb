@@ -1,0 +1,63 @@
+<h1>Relatório de Vendas</h1>
+
+<div class="row hidden-print">
+  <div class="col-md-4 col-md-push-4">
+    <div class="panel panel-default">
+      <div class="panel-heading"><h3 class="panel-title">Dados</h3></div>
+      <div class="panel-body">
+
+        <%= form_for @sales_report, as: :sales_report, url: generate_sales_report_path, method: :get, html: { class: "form" } do |f| %>
+          <div class="form-group row">
+            <div class="col-md-6">
+              <%= f.label :initial_date %><br>
+              <%= f.text_field :initial_date, {class: "form-control",  data:{ provide:'datepicker' } } %>
+            </div>
+
+            <div class="col-md-6">
+              <%= f.label :final_date %><br>
+              <%= f.text_field :final_date, {class: "form-control",  data:{ provide:'datepicker' } } %>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-md-12">
+              <%= f.label :order_status %>:<br>
+              <%= f.select(:order_status, OrderStatus.all, {include_blank: "Selecione uma opção"}, { class: "form-control"}) %>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-md-12">
+              <%= f.label :seller %>:<br>
+              <%= f.collection_select(:seller_id, Employee.all, :id, :name, {include_blank: "Selecione uma opção"}, { class: "form-control"}) %>
+            </div>
+
+          </div>
+
+          <div class="form-group">
+            <%= f.submit :Buscar, class: "btn btn-primary" %>
+            <%=link_to 'Cancelar', root_path,
+              data: { confirm: 'Tem certeza que deseja cancelar essa operação?' },
+              class: "btn btn-default" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+</div>
+<br/>
+
+<div class="panel panel-default">
+  <div class="panel-heading"><h3 class="panel-title">Pedidos (<%= @sales_reports.size %>)</h3></div>
+  <div class="panel-body">
+    <div class="pull-right hidden-print">
+        <a href="#" onclick="window.print();return false;">
+          <i class="glyphicon glyphicon-print" title="Imprimir Pedido"></i>
+        </a>
+    </div>
+
+    <%= render partial: 'orders/orders', :locals => {:orders => @sales_reports, :report => true} %>
+
+  </div>
+</div>

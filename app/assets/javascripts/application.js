@@ -13,6 +13,7 @@
 // FIXME: o jquery ou maskedinput tá trazendo erros. Olhar no console do servidor.
 //= require jquery
 //= require maskedinput
+//= require bootstrap-datepicker
 //= require rails-ujs
 //= require turbolinks
 //= require bootstrap.min
@@ -24,4 +25,9 @@
 
 $(document).ready(function(){
   $(".phone").mask("(99) 99999-9999");
+});
+
+$.fn.datepicker.defaults.format = "dd/mm/yyyy";
+$('.datepicker').datepicker({
+    startDate: '-3d'
 });
