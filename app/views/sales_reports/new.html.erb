@@ -49,15 +49,69 @@
 <br/>
 
 <div class="panel panel-default">
-  <div class="panel-heading"><h3 class="panel-title">Pedidos (<%= @sales_reports.size %>)</h3></div>
-  <div class="panel-body">
-    <div class="pull-right hidden-print">
+  <div class="panel-heading">
+    <h3 class="panel-title">Pedidos (<%= @sales_reports.size %>)
+      <div class="pull-right hidden-print">
         <a href="#" onclick="window.print();return false;">
-          <i class="glyphicon glyphicon-print" title="Imprimir Pedido"></i>
+          <i class="glyphicon glyphicon-print" title="Imprimir Pedido"></i> Imprimir
         </a>
+      </div>
+    </h3>
+
+  </div>
+  <div class="panel-body">
+    <div class="well">
+      <p><strong>Dados do relatório</strong></p>
+      <ul>
+        <li><strong>Data inicial:</strong> <%= @sales_report.initial_date %></li>
+        <li><strong>Data final:</strong> <%= @sales_report.final_date %></li>
+        <li><strong>Status:</strong> <%= @sales_report.order_status %></li>
+        <li><strong>Vendedor:</strong> <%= @sales_report.seller.id %></li>
+      </ul>
+    </div>
+    <hr/>
+
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th style="text-align: right;"># Pedido</th>
+            <th>Vendedor</th>
+            <th>Cliente</th>
+            <th>Itens</th>
+            <th style="text-align: right;">Valor (R$)</th>
+          </tr>
+        </thead>
+        <tbody>
+
+        <% if @sales_reports.empty? %>
+          <%= render partial: 'shared/empty_data', :locals => {:total_columns => 9} %>
+        <% end %>
+
+        <% @sales_reports.each do |order| %>
+          <tr>
+            <td style="text-align: right;">
+              <strong><%= order.number_id %></strong>
+            </td>
+            <td><%= order.employee.user.username %></td>
+            <td>
+              <%= order.client.name %>
+            </td>
+            <td>
+              <% order.order_items.each_with_index do |item, i| %>
+                <%= item.pizza.name %> (<%= item.quantity %>)
+                <% if i < order.order_items.size - 1 %>
+                  ,
+                <% end %>
+              <% end %>
+            </td>
+            <td style="text-align: right;"><%= number_to_currency(order.value, unit: "", separator: ",", delimiter: ".") %></td>
+          </tr>
+        <% end %>
+      </tbody>
+      </table>
     </div>
 
-    <%= render partial: 'orders/orders', :locals => {:orders => @sales_reports, :report => true} %>
 
   </div>
 </div>

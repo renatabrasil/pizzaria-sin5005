@@ -64,7 +64,7 @@
                     <li><%= link_to 'Todos', orders_path %></li>
                     <li role="separator" class="divider"></li>
                     <li><%= link_to 'Atender', orders_path(status: OrderStatus::REGISTERED)  %></li>
-                    <li><%= link_to 'Aguardando Entrega', orders_path(status: OrderStatus::PREPARING) %></li>
+                    <li><%= link_to 'Realizar Entrega', orders_path(status: OrderStatus::READY) %></li>
                     <li><%= link_to 'Em Entrega', orders_path(status: OrderStatus::DELIVERING) %></li>
                     <li><%= link_to 'Entregues', orders_path(status: OrderStatus::DELIVERED) %></li>
                 </ul>
