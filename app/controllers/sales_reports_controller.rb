@@ -2,7 +2,7 @@ class SalesReportsController < ApplicationController
   def new
     if @sales_report.nil?
       @sales_report = SalesReport.new
-      @sales_report.initial_date = Date.today.strftime("%d/%m/%Y")
+      # @sales_report.initial_date = Date.today.strftime("%d/%m/%Y")
     end
 
     unless !@sales_reports.nil? && @sales_reports.size > 0
@@ -37,12 +37,19 @@ class SalesReportsController < ApplicationController
     puts "query " + query
 
     if query.blank?
-      @sales_reports = Order.all
+      @sales = Order.all
     else
-      @sales_reports = Order.where(query)
+      @sales = Order.where(query)
     end
 
-    # @sales_reports = Order.where(status: @sales_report.order_status, created_at: @sales_report.initial_date..@sales_report.final_date,
+    @total_sales = 0
+    unless @sales.empty?
+      @sales.each do |order|
+        @total_sales = @total_sales + order.value
+      end
+    end
+
+    # @sales = Order.where(status: @sales_report.order_status, created_at: @sales_report.initial_date..@sales_report.final_date,
     #   employee_id: @sales_report.seller.id)
 
     render 'new'
