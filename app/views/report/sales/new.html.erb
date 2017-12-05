@@ -6,7 +6,7 @@
       <div class="panel-heading"><h3 class="panel-title">Dados</h3></div>
       <div class="panel-body">
 
-        <%= form_for @sales_report, as: :sales_report, url: generate_sales_report_path, method: :get, html: { class: "form" } do |f| %>
+        <%= form_for @sales_report, as: :sales_report, url: report_sales_path, method: :get, html: { class: "form" } do |f| %>
           <div class="form-group row">
             <div class="col-md-6">
               <%= f.label :initial_date %><br>

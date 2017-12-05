@@ -1,4 +1,4 @@
-class SalesReport
+class Report::Sales
   extend ActiveModel::Naming
   include ActiveModel::Model
   include ActiveModel::Conversion
