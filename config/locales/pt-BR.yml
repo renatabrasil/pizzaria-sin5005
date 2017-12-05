@@ -50,6 +50,10 @@ pt-BR:
               blank: 'não informada.'
             password_confirmation:
               confirmation: 'incorreta.'
+        report:
+          sales:
+            attributes:
+              month: 'Mês'
 
     attributes:
       user:
@@ -71,3 +75,7 @@ pt-BR:
         telephone: 'Telefone'
       order:
         value: 'Valor'
+      report:
+        sales:
+          month: 'Mês'
+          year: 'Ano'
