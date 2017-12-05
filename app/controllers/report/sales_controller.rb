@@ -23,7 +23,7 @@ class Report::SalesController < ApplicationController
       query = query + " status = '" + @sales_report.order_status + "'"
     end
 
-    #  FIXME: Corrigir o formato da data. Usando o where sem a string funciona.
+    # FIXME: Corrigir o formato da data. Usando o where sem a string funciona.
     # if !@sales_report.initial_date.blank? && !@sales_report.final_date.blank?
     #   query = query + " created_at BETWEEN " + @sales_report.initial_date +
     #     " AND " + @sales_report.final_date

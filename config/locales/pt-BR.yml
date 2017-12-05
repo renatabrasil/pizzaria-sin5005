@@ -4,6 +4,11 @@ pt-BR:
     messages:
       not_saved: 'Erro(s) encontrado(s):'
 
+  date:
+    month_names:
+      ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
+      "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
+
   activerecord:
     errors:
       models:

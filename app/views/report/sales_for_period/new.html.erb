@@ -1,0 +1,136 @@
+<h1>Relatório de Vendas Por Período</h1>
+
+<div class="row hidden-print">
+  <div class="col-md-4 col-md-push-4">
+    <div class="panel panel-default">
+      <div class="panel-heading"><h3 class="panel-title">Dados</h3></div>
+      <div class="panel-body">
+
+        <%= form_for @sales_report, as: :sales_report, url: report_sales_for_period_index_path, method: :get, html: { class: "form" } do |f| %>
+          <div class="form-group row">
+            <div class="col-md-8">
+              <%= f.label :month %><br>
+              <%= f.select(:month, options_for_select([
+                  # ["Some text here", -1],
+                  [I18n.t("date.month_names")[0], 1],
+                  [I18n.t("date.month_names")[1], 2],
+                  [I18n.t("date.month_names")[2], 3],
+                  [I18n.t("date.month_names")[3], 4],
+                  [I18n.t("date.month_names")[4], 5],
+                  [I18n.t("date.month_names")[5], 6],
+                  [I18n.t("date.month_names")[6], 7],
+                  [I18n.t("date.month_names")[7], 8],
+                  [I18n.t("date.month_names")[8], 9],
+                  [I18n.t("date.month_names")[9], 10],
+                  [I18n.t("date.month_names")[10], 11],
+                  [I18n.t("date.month_names")[11], 12],
+                  ], selected: @sales_report.month), {include_blank: "Selecione uma opção"},
+                  { class: "form-control"}) %>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-md-8">
+              <%= f.label :year %><br>
+              <%= f.select(:year, 8.years.ago.year.. Date.today.year,
+                {include_blank: "Selecione uma opção"}, { class: "form-control"}) %>
+            </div>
+          </div>
+
+
+
+          <div class="form-group">
+            <%= f.submit :Buscar, class: "btn btn-primary" %>
+            <%=link_to 'Cancelar', root_path,
+              data: { confirm: 'Tem certeza que deseja cancelar essa operação?' },
+              class: "btn btn-default" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+</div>
+<br/>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Pedidos (<%= @sales.size %>)
+      <div class="pull-right hidden-print">
+        <a href="#" onclick="window.print();return false;">
+          <i class="glyphicon glyphicon-print" title="Imprimir Pedido"></i> Imprimir
+        </a>
+      </div>
+    </h3>
+
+  </div>
+  <div class="panel-body">
+    <div class="well">
+      <p><strong>Dados do relatório</strong></p>
+      <ul>
+        <li><strong>Mês:</strong>
+          <% if @sales_report.month.blank? %>
+            -
+          <% else %>
+            <%= I18n.t("date.month_names")[@sales_report.month.to_i - 1] %>
+          <% end %>
+        </li>
+        <li><strong>Ano:</strong>
+          <%= @sales_report.year unless @sales_report.year.blank? %>
+          <%= "-" if @sales_report.year.blank? %>
+        </li>
+      </ul>
+    </div>
+    <hr/>
+
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th style="text-align: right;"># Pedido</th>
+            <th>Vendedor</th>
+            <th>Cliente</th>
+            <th>Itens</th>
+            <th style="text-align: right;">Valor (R$)</th>
+          </tr>
+        </thead>
+        <tbody>
+
+        <% if @sales.empty? %>
+          <%= render partial: 'shared/empty_data', :locals => {:total_columns => 9} %>
+        <% end %>
+
+        <% @sales.each do |order| %>
+          <tr>
+            <td style="text-align: right;">
+              <strong><%= order.number_id %></strong>
+            </td>
+            <td><%= order.employee.user.username %></td>
+            <td>
+              <%= order.client.name %>
+            </td>
+            <td>
+              <% order.order_items.each_with_index do |item, i| %>
+                <%= item.pizza.name %> (<%= item.quantity %>)
+                <% if i < order.order_items.size - 1 %>
+                  ,
+                <% end %>
+              <% end %>
+            </td>
+            <td style="text-align: right;"><%= number_to_currency(order.value, unit: "", separator: ",", delimiter: ".") %></td>
+          </tr>
+        <% end %>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th colspan="5" style="text-align: right; border-top: 2px solid;">
+            Total: <%= number_to_currency(@total_sales, unit: "R$ ", separator: ",", delimiter: ".") %>
+          </th>
+        </tr>
+      </tfoot>
+      </table>
+    </div>
+
+
+  </div>
+</div>
