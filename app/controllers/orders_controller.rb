@@ -10,9 +10,9 @@ class OrdersController < ApplicationController
   def index
     @status = params[:status]
     unless @status.nil?
-      @orders = Order.where(status: @status)
+      @orders = Order.where(status: @status).order(created_at: :desc)
     else
-      @orders = Order.all
+      @orders = Order.all.order(created_at: :desc)
     end
 
   end

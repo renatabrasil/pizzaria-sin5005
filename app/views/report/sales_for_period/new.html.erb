@@ -55,7 +55,7 @@
 
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title">Pedidos (<%= @sales.size %>)
+    <h3 class="panel-title">Pedidos (<%= @sales.values_at.size %>)
       <div class="pull-right hidden-print">
         <a href="#" onclick="window.print();return false;">
           <i class="glyphicon glyphicon-print" title="Imprimir Pedido"></i> Imprimir
@@ -86,7 +86,7 @@
     <% @sales.each do |month, sales| %>
       <div class="table-responsive">
         <table class="table table-striped">
-          <caption class="bg-info" style="padding-left: 6px;"><strong><%= I18n.t("date.month_names")[month-1] %></strong></caption>
+          <caption style="padding-left: 6px; border-bottom: 3px solid;"><strong><%= I18n.t("date.month_names")[month-1] %></strong></caption>
           <thead>
             <tr>
               <th style="text-align: right;"># Pedido</th>
@@ -95,12 +95,12 @@
               <th>Vendedor</th>
               <th>Cliente</th>
               <th>Itens</th>
-              <th style="text-align: right;">Valor (R$)</th>
+              <th style="text-align: right;" nowrap>Valor (R$)</th>
             </tr>
           </thead>
           <tbody>
 
-          <% if sales[0].nil? %>
+          <% if sales[0].empty? %>
             <%= render partial: 'shared/empty_data', :locals => {:total_columns => 7} %>
           <% end %>
 
