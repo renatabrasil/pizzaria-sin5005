@@ -28,7 +28,15 @@ Rails.application.routes.draw do
   # resources :sales_reports
   resources :sales_reports, only: [:new]
   get '/sales_report', to: 'sales_reports#generate', as: 'generate_sales_report'
+  get '/sales_report', to: 'sales_reports#generate_sales_for_seller',
+    as: 'generate_sales_report_for_seller'
   # get 'sales_report', to: :generate, controller: 'sales_reports', as: 'generate_sales_report'
+
+
+  namespace :report do
+    resources :sales, :sales_for_seller, :sales_for_period
+  end
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

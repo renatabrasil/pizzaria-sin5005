@@ -1,4 +1,4 @@
-class SalesReport
+class Report::Sales
   extend ActiveModel::Naming
   include ActiveModel::Model
   include ActiveModel::Conversion
@@ -10,7 +10,8 @@ class SalesReport
   # value
 
   # has_many :orders
-  attr_accessor :initial_date, :final_date, :order_status, :seller, :seller_id
+  attr_accessor :initial_date, :final_date, :order_status, :seller, :seller_id,
+    :month, :year
   # alias_attribute :initial_date, :final_date
 
   def initialize(attributes = {})

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171109191018) do
+ActiveRecord::Schema.define(version: 20171120194331) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,16 @@ ActiveRecord::Schema.define(version: 20171109191018) do
     t.string "name", null: false
     t.string "phone", null: false
     t.string "address", null: false
+  end
+
+  create_table "deliveries", force: :cascade do |t|
+    t.bigint "employee_id"
+    t.bigint "order_id"
+    t.string "note"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["employee_id"], name: "index_deliveries_on_employee_id"
+    t.index ["order_id"], name: "index_deliveries_on_order_id"
   end
 
   create_table "employees", force: :cascade do |t|
@@ -54,6 +64,8 @@ ActiveRecord::Schema.define(version: 20171109191018) do
     t.bigint "client_id"
     t.bigint "employee_id", null: false
     t.decimal "value", precision: 8, scale: 2
+    t.string "number_id", default: "000000"
+    t.string "status", default: "CADASTRADO"
     t.index ["client_id"], name: "index_orders_on_client_id"
     t.index ["employee_id"], name: "index_orders_on_employee_id"
   end
@@ -91,4 +103,6 @@ ActiveRecord::Schema.define(version: 20171109191018) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "deliveries", "employees"
+  add_foreign_key "deliveries", "orders"
 end

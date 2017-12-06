@@ -1,18 +1,18 @@
-class SalesReportsController < ApplicationController
+class Report::SalesController < ApplicationController
   def new
     if @sales_report.nil?
-      @sales_report = SalesReport.new
-      @sales_report.initial_date = Date.today.strftime("%d/%m/%Y")
+      @sales_report = Report::Sales.new
+      # @sales_report.initial_date = Date.today.strftime("%d/%m/%Y")
     end
 
-    unless !@sales_reports.nil? && @sales_reports.size > 0
-      @sales_reports = []
+    unless !@sales.nil? && @sales.size > 0
+      @sales = []
     end
   end
 
-  def generate
+  def index
     # @sales_report = SalesReport.new(params[:sales_report])
-    @sales_report = SalesReport.new
+    @sales_report = Report::Sales.new
     @sales_report.order_status = params[:sales_report][:order_status]
     @sales_report.initial_date = params[:sales_report][:initial_date]
     @sales_report.final_date = params[:sales_report][:final_date]
@@ -22,7 +22,8 @@ class SalesReportsController < ApplicationController
     if !@sales_report.order_status.blank?
       query = query + " status = '" + @sales_report.order_status + "'"
     end
-    #  FIXME: Corrigir o formato da data. Usando o where sem a string funciona.
+
+    # FIXME: Corrigir o formato da data. Usando o where sem a string funciona.
     # if !@sales_report.initial_date.blank? && !@sales_report.final_date.blank?
     #   query = query + " created_at BETWEEN " + @sales_report.initial_date +
     #     " AND " + @sales_report.final_date
@@ -36,15 +37,28 @@ class SalesReportsController < ApplicationController
     end
     puts "query " + query
 
+    @sales = []
+
     if query.blank?
-      @sales_reports = Order.all
+      @sales = Order.all
     else
-      @sales_reports = Order.where(query)
+      @sales = Order.where(query)
     end
 
-    # @sales_reports = Order.where(status: @sales_report.order_status, created_at: @sales_report.initial_date..@sales_report.final_date,
+    @total_sales = 0
+    unless @sales.empty?
+      @sales.each do |order|
+        @total_sales = @total_sales + order.value
+      end
+    end
+
+    # @sales = Order.where(status: @sales_report.order_status, created_at: @sales_report.initial_date..@sales_report.final_date,
     #   employee_id: @sales_report.seller.id)
 
     render 'new'
   end
+
+  def generate_sales_for_seller
+  end
+
 end
