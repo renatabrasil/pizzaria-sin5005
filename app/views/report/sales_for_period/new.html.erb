@@ -89,12 +89,10 @@
           <caption style="padding-left: 6px; border-bottom: 3px solid;"><strong><%= I18n.t("date.month_names")[month-1] %></strong></caption>
           <thead>
             <tr>
-              <th style="text-align: right;"># Pedido</th>
-              <th style="text-align: center;">Mês</th>
-              <th style="text-align: center;">Ano</th>
+              <th style="text-align: right; width: 8%"># Pedido</th>
+              <th style="text-align: center; width: 8%">Mês</th>
+              <th style="text-align: center; width: 8%">Ano</th>
               <th>Vendedor</th>
-              <th>Cliente</th>
-              <th>Itens</th>
               <th style="text-align: right;" nowrap>Valor (R$)</th>
             </tr>
           </thead>
@@ -112,17 +110,6 @@
               <td style="text-align: center;"><%= I18n.t("date.month_names")[order.created_at.month-1] %></td>
               <td style="text-align: center;"><%= order.created_at.year %></td>
               <td><%= order.employee.user.username %></td>
-              <td>
-                <%= order.client.name %>
-              </td>
-              <td>
-                <% order.order_items.each_with_index do |item, i| %>
-                  <%= item.pizza.name %> (<%= item.quantity %>)
-                  <% if i < order.order_items.size - 1 %>
-                    ,
-                  <% end %>
-                <% end %>
-              </td>
               <td style="text-align: right;"><%= number_to_currency(order.value, unit: "", separator: ",", delimiter: ".") %></td>
             </tr>
           <% end %>
