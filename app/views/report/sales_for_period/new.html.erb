@@ -70,14 +70,14 @@
       <ul>
         <li><strong>Mês:</strong>
           <% if @sales_report.month.blank? %>
-            -
+            Todos
           <% else %>
             <%= I18n.t("date.month_names")[@sales_report.month.to_i - 1] %>
           <% end %>
         </li>
         <li><strong>Ano:</strong>
           <%= @sales_report.year unless @sales_report.year.blank? %>
-          <%= "-" if @sales_report.year.blank? %>
+          <%= "Todos" if @sales_report.year.blank? %>
         </li>
       </ul>
     </div>
@@ -109,7 +109,7 @@
               </td>
               <td style="text-align: center;"><%= I18n.t("date.month_names")[order.created_at.month-1] %></td>
               <td style="text-align: center;"><%= order.created_at.year %></td>
-              <td><%= order.employee.user.username %></td>
+              <td><%= order.employee.name %></td>
               <td style="text-align: right;"><%= number_to_currency(order.value, unit: "", separator: ",", delimiter: ".") %></td>
             </tr>
           <% end %>
