@@ -32,6 +32,8 @@ class Report::SalesForPeriodController < ApplicationController
     elsif !@sales_report.month.blank?
       @sales = Order.where("extract(month from created_at) = ?", @sales_report.month).order(created_at: :asc)
       puts "\nMonth: " + @sales_report.month
+    else
+      @sales = Order.all.order(created_at: :asc)
     end
 
     @sales = classify(@sales)
