@@ -91,10 +91,12 @@
               </li>
             </ul>
         <% else %>
+        <!-- desativado por estar associado ao registro de funcionário>
         <ul class="nav navbar-nav navbar-right">
           <li> <%= link_to 'Cadastrar', new_user_registration_path %> </li>
           <li class="active"> <%= link_to('Login', new_user_session_path) %> </li>
         </ul>
+        <-->
         <% end %>
       </div>
     </div>
