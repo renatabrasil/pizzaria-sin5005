@@ -22,14 +22,14 @@
           <div class="form-group row">
             <div class="col-md-12">
               <%= f.label :order_status %>:<br>
-              <%= f.select(:order_status, OrderStatus.all, {include_blank: "Selecione uma opção"}, { class: "form-control"}) %>
+              <%= f.select(:order_status, OrderStatus.all, {include_blank: "Todos"}, { class: "form-control"}) %>
             </div>
           </div>
 
           <div class="form-group row">
             <div class="col-md-12">
               <%= f.label :seller %>:<br>
-              <%= f.collection_select(:seller_id, Employee.all, :id, :name, {include_blank: "Selecione uma opção"}, { class: "form-control"}) %>
+              <%= f.collection_select(:seller_id, Employee.all, :id, :name, {include_blank: "Todos"}, { class: "form-control"}) %>
             </div>
 
           </div>
@@ -65,8 +65,8 @@
       <ul>
         <li><strong>Data inicial:</strong> <%= @sales_report.initial_date %></li>
         <li><strong>Data final:</strong> <%= @sales_report.final_date %></li>
-        <li><strong>Status:</strong> <%= @sales_report.order_status %></li>
-        <li><strong>Vendedor:</strong> <%= @sales_report.seller.id %></li>
+        <li><strong>Status:</strong> <%= (if @sales_report.order_status.blank? then 'Todos' else @sales_report.order_status end) %></li>
+        <li><strong>Vendedor:</strong> <%= (if @sales_report.seller_id.blank? then 'Todos' else @sales_report.seller_id end) %></li>
       </ul>
     </div>
     <hr/>
@@ -76,6 +76,7 @@
         <thead>
           <tr>
             <th style="text-align: right;"># Pedido</th>
+            <th>Status</th>
             <th>Vendedor</th>
             <th>Cliente</th>
             <th>Itens</th>
@@ -93,6 +94,7 @@
             <td style="text-align: right;">
               <strong><%= order.number_id %></strong>
             </td>
+              <td><%= order.status %></td>
             <td><%= order.employee.user.username %></td>
             <td>
               <%= order.client.name %>
@@ -111,7 +113,7 @@
       </tbody>
       <tfoot>
         <tr>
-          <th colspan="5" style="text-align: right; border-top: 2px solid;">
+          <th colspan="6" style="text-align: right; border-top: 2px solid;">
             Total: <%= number_to_currency(@total_sales, unit: "R$ ", separator: ",", delimiter: ".") %>
           </th>
         </tr>

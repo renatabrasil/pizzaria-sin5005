@@ -18,9 +18,9 @@ class Report::SalesController < ApplicationController
     @sales_report.final_date = params[:sales_report][:final_date]
     @sales_report.seller_id = params[:sales_report][:seller_id]
 
-    query = ""
+    query = "     "
     if !@sales_report.order_status.blank?
-      query = query + " status = '" + @sales_report.order_status + "'"
+      query = query + " status = '" + @sales_report.order_status + "' AND "
     end
 
     # FIXME: Corrigir o formato da data. Usando o where sem a string funciona.
@@ -33,8 +33,9 @@ class Report::SalesController < ApplicationController
     #     query = query + " created_at = " + @sales_report.final_date
     # end
     if !@sales_report.seller_id.blank?
-      query = query + " AND employee_id = " + @sales_report.seller_id.to_s
+      query = query + " employee_id = " + @sales_report.seller_id.to_s + " AND "
     end
+    query = query[0..-5]
     puts "query " + query
 
     @sales = []
