@@ -24,7 +24,7 @@
                   [I18n.t("date.month_names")[9], 10],
                   [I18n.t("date.month_names")[10], 11],
                   [I18n.t("date.month_names")[11], 12],
-                  ], selected: @sales_report.month), {include_blank: "Selecione uma opção"},
+                  ], selected: @sales_report.month), {include_blank: "Todos"},
                   { class: "form-control"}) %>
             </div>
           </div>
@@ -33,7 +33,7 @@
             <div class="col-md-8">
               <%= f.label :year %><br>
               <%= f.select(:year, 8.years.ago.year.. Date.today.year,
-                {include_blank: "Selecione uma opção"}, { class: "form-control"}) %>
+                {include_blank: "Todos"}, { class: "form-control"}) %>
             </div>
           </div>
 
@@ -55,7 +55,7 @@
 
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title">Pedidos (<%= @sales.values_at.size %>)
+    <h3 class="panel-title">Pedidos ()
       <div class="pull-right hidden-print">
         <a href="#" onclick="window.print();return false;">
           <i class="glyphicon glyphicon-print" title="Imprimir Pedido"></i> Imprimir
@@ -82,45 +82,58 @@
       </ul>
     </div>
     <hr/>
-
-    <% @sales.each do |month, sales| %>
+    <% @sales.each do |sales_per_year| %>
       <div class="table-responsive">
-        <table class="table table-striped">
-          <caption style="padding-left: 6px; border-bottom: 3px solid;"><strong><%= I18n.t("date.month_names")[month-1] %></strong></caption>
-          <thead>
-            <tr>
-              <th style="text-align: right; width: 8%"># Pedido</th>
-              <th style="text-align: center; width: 8%">Mês</th>
-              <th style="text-align: center; width: 8%">Ano</th>
-              <th>Vendedor</th>
-              <th style="text-align: right;" nowrap>Valor (R$)</th>
-            </tr>
-          </thead>
+        <table class="table">
+          <caption style="padding-left: 6px; border-bottom: 3px solid;"><strong><%= sales_per_year.year %></strong></caption>
+
           <tbody>
 
-          <% if sales[0].empty? %>
-            <%= render partial: 'shared/empty_data', :locals => {:total_columns => 7} %>
-          <% end %>
-
-          <% sales[0].each do |order| %>
+          <% sales_per_year.sales_per_months.each do |sales_per_month| %>
             <tr>
-              <td style="text-align: right;">
-                <strong><%= order.number_id %></strong>
+              <td>
+                <table class="table table-striped">
+                  <caption><%= I18n.t("date.month_names")[sales_per_month.month - 1] %></caption>
+                  <thead>
+                    <tr>
+                      <th style="text-align: right; width: 8%"># Pedido</th>
+                      <th style="text-align: center; width: 8%">Mês</th>
+                      <th style="text-align: center; width: 8%">Ano</th>
+                      <th>Vendedor</th>
+                      <th style="text-align: right;" nowrap>Valor (R$)</th>
+                    </tr>
+                  </thead>
+                  <% sales_per_month.orders.each do |order| %>
+                    <tr>
+                      <td><%= order.number_id %></td>
+                      <td><%= I18n.t("date.month_names")[order.created_at.month-1] %></td>
+                      <td style="text-align: center;"><%= order.created_at.year %></td>
+                      <td><%= order.employee.name %></td>
+                      <td style="text-align: right;"><%= number_to_currency(order.value, unit: "", separator: ",", delimiter: ".") %></td>
+                    </tr>
+                  <% end %>
+                  <tfoot>
+                    <tr>
+                      <th colspan="7" style="text-align: right;">
+                        <strong>Total: </strong>
+                        <%= number_to_currency(sales_per_month.total_value, unit: "R$ ", separator: ",", delimiter: ".") %>
+                      </th>
+                    </tr>
+                  </tfoot>
+                </table>
               </td>
-              <td style="text-align: center;"><%= I18n.t("date.month_names")[order.created_at.month-1] %></td>
-              <td style="text-align: center;"><%= order.created_at.year %></td>
-              <td><%= order.employee.name %></td>
-              <td style="text-align: right;"><%= number_to_currency(order.value, unit: "", separator: ",", delimiter: ".") %></td>
             </tr>
           <% end %>
         </tbody>
         <tfoot>
           <tr>
-            <th colspan="7" style="text-align: right; border-top: 1px dashed;">
-              Total: <%= number_to_currency(sales[1], unit: "R$ ", separator: ",", delimiter: ".") %>
+            <th colspan="7" style="text-align: right; border-top: 1px solid;">
+              <strong>Total de <%= sales_per_year.year %>: </strong>
+              <%= number_to_currency(sales_per_year.total_value, unit: "R$ ", separator: ",", delimiter: ".") %>
             </th>
           </tr>
         </tfoot>
+
         </table>
       </div>
     <% end %>
