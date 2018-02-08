@@ -1,5 +1,8 @@
 # Pizzaria SIN5005
 
+https://sonarcloud.io/api/project_badges/measure?project=pizzaria-sin5005&metric=sqale_index
+
+
 Projetinho da disciplina SIN5005 Tópicos em Engenharia de Software. Só o basicão de um sistema. Estou usando Ruby On Rails, integração contínua e testes automatizados, além de postgres.
 
 **(https://pizzaria-sin5005.herokuapp.com/)**
