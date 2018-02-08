@@ -1,6 +1,10 @@
 # Pizzaria SIN5005
 
-https://sonarcloud.io/api/project_badges/measure?project=pizzaria-sin5005&metric=sqale_index
+![](https://sonarcloud.io/api/project_badges/measure?project=pizzaria-sin5005&metric=alert_status)
+![](https://sonarcloud.io/api/project_badges/measure?project=pizzaria-sin5005&metric=sqale_rating)
+![](https://sonarcloud.io/api/project_badges/measure?project=pizzaria-sin5005&metric=ncloc)
+![](https://sonarcloud.io/api/project_badges/measure?project=pizzaria-sin5005&metric=sqale_index)
+![](https://sonarcloud.io/api/project_badges/measure?project=pizzaria-sin5005&metric=reliability_rating)
 
 
 Projetinho da disciplina SIN5005 Tópicos em Engenharia de Software. Só o basicão de um sistema. Estou usando Ruby On Rails, integração contínua e testes automatizados, além de postgres.
